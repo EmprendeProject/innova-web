@@ -1,0 +1,318 @@
+/* ============================================
+   INNOVA 360 · Link in Bio
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-down {
+  opacity: 0;
+  animation: fadeDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #06091a;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ============================================
+   PAGE — background image fills full screen
+   ============================================ */
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* Background */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* parallax effect on desktop */
+}
+
+/* On mobile, fixed attachment can glitch — switch to scroll */
+@media (max-width: 768px) {
+  .page {
+    background-attachment: scroll;
+  }
+}
+
+/* ============================================
+   INNER CONTENT — centered column
+   ============================================ */
+
+.page-inner {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 24px 20px;
+  gap: 0;
+}
+
+@media (max-width: 480px) {
+  .page-inner {
+    padding: 28px 16px 16px;
+  }
+}
+
+/* ============================================
+   TITULAR — top hero image (PNG with transparency)
+   ============================================ */
+
+.titular-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: 28px;
+
+  /* Subtle drop shadow to pop against any background */
+  filter: drop-shadow(0 4px 24px rgba(0, 80, 200, 0.35));
+}
+
+@media (max-width: 480px) {
+  .titular-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+/* ============================================
+   CTA LABEL
+   ============================================ */
+
+.cta-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  color: #0c1f6e;
+  text-transform: uppercase;
+  text-shadow: none;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.buttons-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 18px 20px;
+  border-radius: 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 2.5px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px) scale(1.012);
+  filter: brightness(1.1);
+}
+
+.cta-btn:active {
+  transform: scale(0.975);
+  filter: brightness(0.9);
+}
+
+/* Filled — primary CTA */
+.cta-btn--filled {
+  background: linear-gradient(90deg, #1a3ab8, #1d4ed8, #2563eb);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow:
+    0 4px 16px rgba(29, 78, 216, 0.5),
+    0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn--filled:hover {
+  box-shadow:
+    0 6px 24px rgba(29, 78, 216, 0.65),
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Secondary CTAs — solid dark navy, fully opaque, readable on white */
+.cta-btn--outline {
+  background: #0c1f6e;
+  color: #ffffff;
+  border-color: #2563eb;
+}
+
+.cta-btn--outline:hover {
+  background: #162884;
+  border-color: #3b82f6;
+}
+
+/* ============================================
+   UBICACIÓN IMAGE
+   ============================================ */
+
+.ubicacion-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 16px;
+  /* Gentle glow matching the image's blue tones */
+  filter: drop-shadow(0 8px 28px rgba(0, 120, 255, 0.25));
+}
+
+@media (max-width: 480px) {
+  .ubicacion-img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.page-footer {
+  width: 100%;
+  text-align: center;
+  padding: 20px 24px 28px;
+  font-size: 12px;
+  color: #4a5568;
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-copy {
+  font-size: 12px;
+  color: #4a5568;
+  letter-spacing: 0.4px;
+}
+
+/* ── SOCIAL ICONS ── */
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease,
+    filter 0.2s ease;
+}
+
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+/* WhatsApp — fully active */
+.social-icon--active {
+  background: #25D366;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 3px 12px rgba(37, 211, 102, 0.35);
+}
+
+.social-icon--active:hover {
+  transform: scale(1.12) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.social-icon--active:active {
+  transform: scale(0.96);
+}
+
+/* Instagram & TikTok — disabled / coming soon */
+.social-icon--inactive {
+  background: #e2e8f0;
+  color: #a0aec0;
+  cursor: not-allowed;
+  opacity: 0.55;
+  user-select: none;
+}
+
