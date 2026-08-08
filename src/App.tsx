@@ -18,12 +18,6 @@ const buttons = [
     text: 'Hola! Estoy interesado/a en comprar un stand para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me pueden dar información sobre disponibilidad y precios?',
     filled: false,
   },
-  {
-    id: 'btn-patrocinador',
-    label: 'SER PATROCINADOR',
-    text: 'Hola! Me gustaría conocer las opciones para ser patrocinador del evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Qué planes tienen disponibles?',
-    filled: false,
-  },
 ]
 
 function App() {
