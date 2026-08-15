@@ -240,6 +240,27 @@ body {
 }
 
 /* ============================================
+   QUIÉN PARTICIPA
+   ============================================ */
+
+.quien-participa-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.quien-participa-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 12px;
+  filter: drop-shadow(0 4px 16px rgba(0, 80, 200, 0.2));
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 
