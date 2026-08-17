@@ -1,6 +1,5 @@
 import '../App.css'
 import { useReveal } from '../hooks/useReveal'
-import { VslPlayer } from '../components/VslPlayer'
 
 import fondoImg from '../assets/elementos graficos/fondo.png'
 import tituloImg from '../assets/entradas/titulo entradas.png'
@@ -36,10 +35,9 @@ function Entradas() {
           style={{ marginBottom: '1.5rem', marginTop: '2rem' }}
         />
 
-        {/* VSL Video Embed — scroll-reveal con scale */}
+        {/* VSL Video Embed */}
         <div
-          className="reveal-scale"
-          data-delay="0"
+          className="animate-fade-up"
           style={{
             width: '100%',
             maxWidth: '420px',
@@ -47,9 +45,10 @@ function Entradas() {
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0 8px 30px rgba(0,0,0,0.5)',
+            animationDelay: '0.2s',
           }}
         >
-          <VslPlayer dataId="d8873fce-7475-4dcd-900b-8785b4714f6a" />
+          <vsl-player data-id="d8873fce-7475-4dcd-900b-8785b4714f6a" />
         </div>
 
         {/* CTA Button principal */}
