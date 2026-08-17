@@ -11,40 +11,97 @@
 }
 
 /* ============================================
-   ANIMATIONS
+   ANIMATIONS — Page-load (título, primeros elementos)
    ============================================ */
 
 @keyframes fadeDown {
-  from {
-    opacity: 0;
-    transform: translateY(-22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-down {
   opacity: 0;
-  animation: fadeDown 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeDown 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .animate-fade-up {
   opacity: 0;
-  animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: fadeUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
+
+/* ============================================
+   SCROLL-REVEAL SYSTEM
+   Clases base → estado inicial (oculto)
+   + .is-visible  → estado final  (visible)
+   Controladas por useReveal() hook (IntersectionObserver)
+   ============================================ */
+
+/* Base: fade-up sutil (default reveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 0.72s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.72s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Scale-up: aparece creciendo levemente (para cards/tickets) */
+.reveal-scale {
+  opacity: 0;
+  transform: translateY(24px) scale(0.96);
+  transition:
+    opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Slide desde la izquierda */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Slide desde la derecha */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition:
+    opacity 0.68s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.68s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+/* Estado VISIBLE — aplicado por IntersectionObserver */
+.reveal.is-visible,
+.reveal-scale.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Respeta prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 
 html, body {
   height: 100%;
@@ -215,6 +272,46 @@ body {
 .cta-btn--outline:hover {
   background: #162884;
   border-color: #3b82f6;
+}
+
+/* Silver — VIP CTA */
+.cta-btn--silver {
+  background: linear-gradient(135deg, #b8bec9 0%, #e8ecf0 30%, #f5f7f9 50%, #d0d5dd 70%, #9aa0ad 100%);
+  color: #2a2a2a;
+  border-color: #c8cdd6;
+  box-shadow:
+    0 4px 16px rgba(160, 165, 175, 0.55),
+    0 2px 4px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 1px rgba(255,255,255,0.4);
+}
+
+.cta-btn--silver:hover {
+  box-shadow:
+    0 6px 24px rgba(160, 165, 175, 0.7),
+    0 2px 6px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  filter: brightness(1.06);
+}
+
+/* Gold — Diamante CTA */
+.cta-btn--gold {
+  background: linear-gradient(135deg, #b8860b 0%, #f0c040 25%, #fde77a 50%, #e6a817 75%, #a0720a 100%);
+  color: #3a2000;
+  border-color: #d4a017;
+  box-shadow:
+    0 4px 16px rgba(200, 150, 20, 0.6),
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 200, 0.5);
+  text-shadow: 0 1px 1px rgba(255,240,150,0.5);
+}
+
+.cta-btn--gold:hover {
+  box-shadow:
+    0 6px 24px rgba(200, 150, 20, 0.75),
+    0 2px 6px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 200, 0.5);
+  filter: brightness(1.08);
 }
 
 /* ============================================

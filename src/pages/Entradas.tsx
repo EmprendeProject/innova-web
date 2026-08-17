@@ -1,4 +1,16 @@
+import React from 'react'
 import '../App.css'
+import { useReveal } from '../hooks/useReveal'
+
+// Declaración del web component de VSL para TypeScript
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'vsl-player': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { 'data-id'?: string }, HTMLElement>
+    }
+  }
+}
+
 import fondoImg from '../assets/elementos graficos/fondo.png'
 import tituloImg from '../assets/entradas/titulo entradas.png'
 import caracteristicasImg from '../assets/entradas/caracteristicas iconos.png'
@@ -13,6 +25,9 @@ import quienParticipa2 from '../assets/entradas/quien participa 2.PNG'
 const WHATSAPP = '+584228638329'
 
 function Entradas() {
+  // Activa el scroll-reveal para todos los .reveal* de esta página
+  useReveal()
+
   const wa = (msg: string) =>
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`
 
@@ -21,8 +36,8 @@ function Entradas() {
   return (
     <div className="page" style={{ backgroundImage: `url(${fondoImg})` }}>
       <div className="page-inner" style={{ minHeight: '100vh', justifyContent: 'center' }}>
-        
-        {/* Title */}
+
+        {/* Title — animación de carga inmediata */}
         <img
           src={tituloImg}
           alt="Compra de Entradas"
@@ -30,32 +45,24 @@ function Entradas() {
           style={{ marginBottom: '1.5rem', marginTop: '2rem' }}
         />
 
-        {/* Video Embed */}
-        <div 
-          className="animate-fade-up" 
-          style={{ 
-            width: '100%', 
-            maxWidth: '360px', 
-            aspectRatio: '9/16', 
+        {/* VSL Video Embed — scroll-reveal con scale */}
+        <div
+          className="reveal-scale"
+          data-delay="0"
+          style={{
+            width: '100%',
+            maxWidth: '420px',
             marginBottom: '2rem',
             borderRadius: '12px',
             overflow: 'hidden',
             boxShadow: '0 8px 30px rgba(0,0,0,0.5)',
-            animationDelay: '0.3s'
           }}
         >
-          <iframe 
-            src="https://drive.google.com/file/d/1H3zHpxZygGmeAWA6jLsHCwYNA2YmAZMb/preview" 
-            width="100%" 
-            height="100%" 
-            allow="autoplay"
-            style={{ border: 'none' }}
-            title="Video Promocional Innova 360"
-          ></iframe>
+          <vsl-player data-id="d8873fce-7475-4dcd-900b-8785b4714f6a" />
         </div>
 
-        {/* CTA Button — debajo del video */}
-        <div className="buttons-group animate-fade-up" style={{ animationDelay: '0.45s' }}>
+        {/* CTA Button principal */}
+        <div className="buttons-group reveal" data-delay="80">
           <a
             href={wa(btnText)}
             target="_blank"
@@ -67,7 +74,7 @@ function Entradas() {
         </div>
 
         {/* ── QUIÉN PARTICIPA ── */}
-        <div className="quien-participa-group animate-fade-up" style={{ animationDelay: '0.5s' }}>
+        <div className="quien-participa-group reveal" data-delay="0">
           <img
             src={quienParticipa1}
             alt="¿Quién participa? - Parte 1"
@@ -80,11 +87,12 @@ function Entradas() {
           />
         </div>
 
-        {/* Características iconos — debajo del botón */}
+        {/* Características iconos */}
         <img
           src={caracteristicasImg}
           alt="Características del evento"
-          className="animate-fade-up"
+          className="reveal"
+          data-delay="0"
           style={{
             width: '100%',
             maxWidth: '400px',
@@ -92,15 +100,15 @@ function Entradas() {
             display: 'block',
             objectFit: 'contain',
             marginBottom: '2rem',
-            animationDelay: '0.55s',
           }}
         />
 
-        {/* Ponentes — debajo de características */}
+        {/* Ponentes */}
         <img
           src={ponentesImg}
           alt="Ponentes Confirmados"
-          className="animate-fade-up"
+          className="reveal"
+          data-delay="0"
           style={{
             width: '100%',
             maxWidth: '400px',
@@ -108,73 +116,79 @@ function Entradas() {
             display: 'block',
             objectFit: 'contain',
             marginBottom: '2rem',
-            animationDelay: '0.6s',
           }}
         />
 
         {/* Tickets */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2rem', marginBottom: '2rem', width: '100%', maxWidth: '400px' }}>
 
-          {/* Adquiere tu entrada — encima de Expoferia */}
+          {/* Adquiere tu entrada */}
           <img
             src={adquiereImg}
             alt="Adquiere tu entrada"
-            className="animate-fade-up"
-            style={{ width: '100%', objectFit: 'contain', animationDelay: '0.65s' }}
+            className="reveal"
+            data-delay="0"
+            style={{ width: '100%', objectFit: 'contain' }}
           />
 
           {/* Entrada Expoferia + botón */}
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+          <div
+            className="reveal-scale"
+            data-delay="0"
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}
+          >
             <img
               src={entradaExpoferiaImg}
               alt="Entrada Expoferia"
-              className="animate-fade-up"
-              style={{ width: '100%', objectFit: 'contain', animationDelay: '0.7s' }}
+              style={{ width: '100%', objectFit: 'contain' }}
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada Expoferia para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-btn cta-btn--filled animate-fade-up"
-              style={{ animationDelay: '0.75s' }}
+              className="cta-btn cta-btn--filled"
             >
               COMPRAR EXPOFERIA
             </a>
           </div>
 
           {/* Entrada VIP + botón */}
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+          <div
+            className="reveal-scale"
+            data-delay="80"
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}
+          >
             <img
               src={entradaVipImg}
               alt="Entrada VIP"
-              className="animate-fade-up"
-              style={{ width: '100%', objectFit: 'contain', animationDelay: '0.8s' }}
+              style={{ width: '100%', objectFit: 'contain' }}
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada VIP para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-btn cta-btn--filled animate-fade-up"
-              style={{ animationDelay: '0.85s' }}
+              className="cta-btn cta-btn--silver"
             >
               COMPRAR VIP
             </a>
           </div>
 
           {/* Entrada Diamante + botón */}
-          <div style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}>
+          <div
+            className="reveal-scale"
+            data-delay="160"
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '12px' }}
+          >
             <img
               src={entradaDiamanteImg}
               alt="Entrada Diamante"
-              className="animate-fade-up"
-              style={{ width: '100%', objectFit: 'contain', animationDelay: '0.9s' }}
+              style={{ width: '100%', objectFit: 'contain' }}
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada Diamante para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
               target="_blank"
               rel="noopener noreferrer"
-              className="cta-btn cta-btn--filled animate-fade-up"
-              style={{ animationDelay: '0.95s' }}
+              className="cta-btn cta-btn--gold"
             >
               COMPRAR DIAMANTE
             </a>
