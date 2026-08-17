@@ -5,7 +5,10 @@ import { useEffect } from 'react'
  * Agrega la clase `.is-visible` a cada elemento con `.reveal`
  * cuando entra al viewport. La animación se dispara una sola vez.
  */
-export function useReveal(selector = '.reveal', threshold = 0.12) {
+export function useReveal(
+  selector = '.reveal, .reveal-scale, .reveal-left, .reveal-right',
+  threshold = 0.12
+) {
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(selector)
 
