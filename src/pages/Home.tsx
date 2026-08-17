@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import titularImg from '../assets/elementos graficos/titular innova 360.png'
-import ubicacionImg from '../assets/elementos graficos/ubicacion innova 360.png'
-import fondoImg from '../assets/elementos graficos/fondo.png'
+import titularImg from '../assets/elementos graficos/titular innova 360.webp'
+import ubicacionImg from '../assets/elementos graficos/ubicacion innova 360.webp'
+import fondoImg from '../assets/elementos graficos/fondo.webp'
 import '../App.css'
 
 const WHATSAPP = '+584228638329'
@@ -68,6 +68,7 @@ function Home() {
           alt="Ubicación: CC. Líder · Sábado y Domingo 19 y 20 Noviembre"
           className="ubicacion-img animate-fade-up"
           style={{ animationDelay: '0.85s' }}
+          loading="lazy"
         />
 
       </div>

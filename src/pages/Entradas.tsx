@@ -1,16 +1,16 @@
 import '../App.css'
 import { useReveal } from '../hooks/useReveal'
 
-import fondoImg from '../assets/elementos graficos/fondo.png'
-import tituloImg from '../assets/entradas/titulo entradas.png'
-import caracteristicasImg from '../assets/entradas/caracteristicas iconos.png'
-import ponentesImg from '../assets/entradas/ponentes.png'
-import adquiereImg from '../assets/entradas/adquiere tu entrada.png'
-import entradaExpoferiaImg from '../assets/entradas/Entrada expoferia.png'
-import entradaVipImg from '../assets/entradas/Entrada vip.png'
-import entradaDiamanteImg from '../assets/entradas/Entrada diamante.png'
-import quienParticipa1 from '../assets/entradas/quien participa 1.PNG'
-import quienParticipa2 from '../assets/entradas/quien participa 2.PNG'
+import fondoImg from '../assets/elementos graficos/fondo.webp'
+import tituloImg from '../assets/entradas/titulo entradas.webp'
+import caracteristicasImg from '../assets/entradas/caracteristicas iconos.webp'
+import ponentesImg from '../assets/entradas/ponentes.webp'
+import adquiereImg from '../assets/entradas/adquiere tu entrada.webp'
+import entradaExpoferiaImg from '../assets/entradas/Entrada expoferia.webp'
+import entradaVipImg from '../assets/entradas/Entrada vip.webp'
+import entradaDiamanteImg from '../assets/entradas/Entrada diamante.webp'
+import quienParticipa1 from '../assets/entradas/quien participa 1.webp'
+import quienParticipa2 from '../assets/entradas/quien participa 2.webp'
 
 const WHATSAPP = '+584228638329'
 
@@ -69,11 +69,13 @@ function Entradas() {
             src={quienParticipa1}
             alt="¿Quién participa? - Parte 1"
             className="quien-participa-img"
+            loading="lazy"
           />
           <img
             src={quienParticipa2}
             alt="¿Quién participa? - Parte 2"
             className="quien-participa-img"
+            loading="lazy"
           />
         </div>
 
@@ -91,6 +93,7 @@ function Entradas() {
             objectFit: 'contain',
             marginBottom: '2rem',
           }}
+          loading="lazy"
         />
 
         {/* Ponentes */}
@@ -107,6 +110,7 @@ function Entradas() {
             objectFit: 'contain',
             marginBottom: '2rem',
           }}
+          loading="lazy"
         />
 
         {/* Tickets */}
@@ -119,6 +123,7 @@ function Entradas() {
             className="reveal"
             data-delay="0"
             style={{ width: '100%', objectFit: 'contain' }}
+            loading="lazy"
           />
 
           {/* Entrada Expoferia + botón */}
@@ -131,6 +136,7 @@ function Entradas() {
               src={entradaExpoferiaImg}
               alt="Entrada Expoferia"
               style={{ width: '100%', objectFit: 'contain' }}
+              loading="lazy"
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada Expoferia para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
@@ -152,6 +158,7 @@ function Entradas() {
               src={entradaVipImg}
               alt="Entrada VIP"
               style={{ width: '100%', objectFit: 'contain' }}
+              loading="lazy"
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada VIP para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
@@ -173,6 +180,7 @@ function Entradas() {
               src={entradaDiamanteImg}
               alt="Entrada Diamante"
               style={{ width: '100%', objectFit: 'contain' }}
+              loading="lazy"
             />
             <a
               href={wa('Hola! Me interesa comprar la Entrada Diamante para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
