@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import titularImg from '../assets/elementos graficos/titular innova 360.png'
 import ubicacionImg from '../assets/elementos graficos/ubicacion innova 360.png'
 import fondoImg from '../assets/elementos graficos/fondo.png'
@@ -5,18 +6,11 @@ import '../App.css'
 
 const WHATSAPP = '+584228638329'
 
-const buttons = [
-  {
-    id: 'btn-entradas',
-    label: 'COMPRAR ENTRADAS',
-    text: 'Hola! Me interesa comprar entradas para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?',
-    filled: true,
-  },
+const waButtons = [
   {
     id: 'btn-stands',
     label: 'COMPRAR STANDS',
     text: 'Hola! Estoy interesado/a en comprar un stand para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me pueden dar información sobre disponibilidad y precios?',
-    filled: false,
   },
 ]
 
@@ -42,15 +36,26 @@ function Home() {
 
         {/* Buttons */}
         <div className="buttons-group">
-          {buttons.map((btn, i) => (
+          {/* Entradas → navega a /entradas (SPA interno) */}
+          <Link
+            id="btn-entradas"
+            to="/entradas"
+            className="cta-btn cta-btn--filled animate-fade-up"
+            style={{ animationDelay: '0.45s' }}
+          >
+            COMPRAR ENTRADAS
+          </Link>
+
+          {/* Stands → WhatsApp externo */}
+          {waButtons.map((btn, i) => (
             <a
               key={btn.id}
               id={btn.id}
               href={wa(btn.text)}
               target="_blank"
               rel="noopener noreferrer"
-              className={`cta-btn ${btn.filled ? 'cta-btn--filled' : 'cta-btn--outline'} animate-fade-up`}
-              style={{ animationDelay: `${0.45 + i * 0.12}s` }}
+              className="cta-btn cta-btn--outline animate-fade-up"
+              style={{ animationDelay: `${0.57 + i * 0.12}s` }}
             >
               {btn.label}
             </a>
