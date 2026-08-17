@@ -1,15 +1,5 @@
-import React from 'react'
 import '../App.css'
 import { useReveal } from '../hooks/useReveal'
-
-// Declaración del web component de VSL para TypeScript
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'vsl-player': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & { 'data-id'?: string }, HTMLElement>
-    }
-  }
-}
 
 import fondoImg from '../assets/elementos graficos/fondo.png'
 import tituloImg from '../assets/entradas/titulo entradas.png'
