@@ -1,5 +1,6 @@
 import '../App.css'
 import { useReveal } from '../hooks/useReveal'
+import Countdown from '../components/Countdown'
 
 import fondoImg from '../assets/elementos graficos/fondo.webp'
 import tituloImg from '../assets/entradas/titulo entradas.webp'
@@ -195,6 +196,7 @@ function Entradas() {
         </div>
 
       </div>
+      <Countdown targetDate="2026-11-19T08:00:00" />
     </div>
   )
 }

@@ -58,13 +58,10 @@ function Home() {
       </div>
 
       {/* ── FOOTER ── */}
-      <footer className="page-footer animate-fade-up" style={{ animationDelay: '1.0s' }}>
+      {/* <footer className="page-footer animate-fade-up" style={{ animationDelay: '1.0s' }}>
         <p className="footer-copy">© 2026 Innova 360 · Todos los derechos reservados</p>
 
-        {/* Social icons */}
         <div className="social-icons">
-
-          {/* WhatsApp — activo */}
           <a
             id="social-whatsapp"
             href={`https://wa.me/${WHATSAPP}`}
@@ -79,7 +76,6 @@ function Home() {
             </svg>
           </a>
 
-          {/* Instagram — inactivo por ahora */}
           <span
             id="social-instagram"
             className="social-icon social-icon--inactive"
@@ -91,7 +87,6 @@ function Home() {
             </svg>
           </span>
 
-          {/* TikTok — inactivo por ahora */}
           <span
             id="social-tiktok"
             className="social-icon social-icon--inactive"
@@ -104,7 +99,7 @@ function Home() {
           </span>
 
         </div>
-      </footer>
+      </footer> */}
     </div>
   )
 }

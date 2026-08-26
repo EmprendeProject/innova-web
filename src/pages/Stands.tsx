@@ -234,7 +234,7 @@ function Stands() {
       </div>
 
       {/* ── FOOTER ── */}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   )
 }
