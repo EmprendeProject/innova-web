@@ -4,7 +4,7 @@ import ubicacionImg from '../assets/elementos graficos/ubicacion innova 360.webp
 import fondoImg from '../assets/elementos graficos/fondo.webp'
 import '../App.css'
 
-const WHATSAPP = '+584228638329'
+// const WHATSAPP = '+584228638329'
 
 function Home() {
   return (

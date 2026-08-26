@@ -1,7 +1,7 @@
 import '../App.css'
 import { useReveal } from '../hooks/useReveal'
 import Faq from '../components/Faq'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 import PastEditionCarousel from '../components/PastEditionCarousel'
 import PlanoViewer from '../components/PlanoViewer'
 import WhyExhibit from '../components/WhyExhibit'
