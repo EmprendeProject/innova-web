@@ -6,18 +6,7 @@ import '../App.css'
 
 const WHATSAPP = '+584228638329'
 
-const waButtons = [
-  {
-    id: 'btn-stands',
-    label: 'COMPRAR STANDS',
-    text: 'Hola! Estoy interesado/a en comprar un stand para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me pueden dar información sobre disponibilidad y precios?',
-  },
-]
-
 function Home() {
-  const wa = (msg: string) =>
-    `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`
-
   return (
     <div className="page" style={{ backgroundImage: `url(${fondoImg})` }}>
       <div className="page-inner">

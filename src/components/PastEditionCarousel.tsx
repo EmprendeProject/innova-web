@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import '../styles/PastEditionCarousel.css'
 import img1 from '../assets/primera edicion/1.png'
 import img2 from '../assets/primera edicion/2.png'
