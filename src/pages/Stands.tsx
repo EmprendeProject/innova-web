@@ -9,7 +9,7 @@ import Countdown from '../components/Countdown'
 
 import fondoImg from '../assets/elementos graficos/fondo.webp'
 import tituloStand from '../assets/stands/titulo adquiere tu stand.png'
-import portadaStands from '../assets/stands/portada de stands.jpeg'
+import portadaStands from '../assets/stands/portada de stands.png'
 import ubicacion2 from '../assets/elementos graficos/ubicación 2.png'
 import queEsInnova from '../assets/stands/que es innova.png'
 import caracteristicasIconos from '../assets/entradas/caracteristicas iconos.webp'

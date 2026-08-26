@@ -45,7 +45,7 @@ function Countdown({ targetDate }: CountdownProps) {
     <div className="countdown-wrapper">
       <div className="countdown-container">
         <div className="countdown-info">
-          <h3 className="countdown-title">Inicia en</h3>
+          <h3 className="countdown-title">¡Solo faltan!</h3>
         </div>
         <div className="countdown-grid">
           <div className="countdown-item">

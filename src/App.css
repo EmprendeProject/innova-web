@@ -130,6 +130,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 72px; /* space for sticky navbar */
 
   /* Background */
   background-size: cover;
