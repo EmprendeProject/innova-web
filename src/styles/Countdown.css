@@ -1,0 +1,137 @@
+/* ============================================
+   COUNTDOWN TIMER - STICKY BOTTOM BAR
+   ============================================ */
+
+.countdown-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  pointer-events: none; /* Allows clicking behind it if necessary */
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.countdown-container {
+  pointer-events: auto; /* Re-enable clicks on the banner itself */
+  width: 100%;
+  max-width: 440px;
+  margin: 0;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  box-shadow: 0 -4px 24px rgba(12, 31, 110, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.countdown-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.countdown-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0c1f6e;
+  margin: 0;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: 8px;
+  width: 44px;
+  height: 48px;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  opacity: 0.8;
+}
+
+.countdown-value {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: #1e293b;
+  line-height: 1;
+  margin-top: 4px;
+}
+
+.countdown-label {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #475569;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* Adjust layout on very small screens */
+@media (max-width: 360px) {
+  .countdown-container {
+    padding: 10px 12px;
+  }
+  .countdown-title {
+    font-size: 14px;
+  }
+  .countdown-item {
+    width: 38px;
+    height: 44px;
+  }
+  .countdown-value {
+    font-size: 18px;
+  }
+  .countdown-label {
+    font-size: 8px;
+  }
+  .countdown-grid {
+    gap: 4px;
+  }
+}

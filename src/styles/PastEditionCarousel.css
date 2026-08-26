@@ -1,0 +1,100 @@
+/* ============================================
+   PAST EDITION CAROUSEL
+   ============================================ */
+
+.past-edition-section {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.past-edition-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #0c1f6e;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.carousel-container {
+  width: 100%;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(12, 31, 110, 0.15);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  background: #ffffff;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 4 / 5; /* Assuming vertical images, adjust if needed */
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 8px;
+  z-index: 10;
+  padding-bottom: 12px;
+  height: 60px; /* Space for the gradient */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #60a5fa;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}

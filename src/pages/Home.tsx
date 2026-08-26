@@ -46,20 +46,15 @@ function Home() {
             COMPRAR ENTRADAS
           </Link>
 
-          {/* Stands → WhatsApp externo */}
-          {waButtons.map((btn, i) => (
-            <a
-              key={btn.id}
-              id={btn.id}
-              href={wa(btn.text)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="cta-btn cta-btn--outline animate-fade-up"
-              style={{ animationDelay: `${0.57 + i * 0.12}s` }}
-            >
-              {btn.label}
-            </a>
-          ))}
+          {/* Stands → navega a /stands (SPA interno) */}
+          <Link
+            id="btn-stands"
+            to="/stands"
+            className="cta-btn cta-btn--outline animate-fade-up"
+            style={{ animationDelay: '0.57s' }}
+          >
+            COMPRAR STANDS
+          </Link>
         </div>
 
         {/* ── UBICACIÓN ── */}
