@@ -1,0 +1,325 @@
+/* ============================================
+   ORO PACKAGE CARD - Premium Design
+   ============================================ */
+
+.oro-package-container {
+  width: 100%;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  padding: 32px;
+  margin: 40px auto;
+  font-family: 'Inter', sans-serif;
+  color: #0A2540;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background accent */
+.oro-package-container::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.oro-header, .oro-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER ORO */
+.oro-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.oro-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  background: linear-gradient(to bottom, #FFDF73 0%, #D4AF37 50%, #997A15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.oro-subtitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0A2540;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+}
+
+.oro-description {
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.oro-description strong {
+  color: #0A2540;
+}
+
+/* GRID LAYOUT */
+.oro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .oro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* COLUMNA IZQUIERDA */
+.oro-benefits-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.oro-alianza-box {
+  background: #F8FAFC;
+  border-radius: 16px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+}
+
+.oro-alianza-header {
+  background: #113A69;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+}
+
+.oro-alianza-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.oro-alianza-list {
+  list-style: none;
+  padding: 20px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.oro-alianza-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.oro-icon-box {
+  background: #113A69;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.oro-text-box h5 {
+  margin: 0 0 4px 0;
+  font-size: 14px;
+  color: #113A69;
+  font-weight: 700;
+}
+
+.oro-text-box p {
+  margin: 0;
+  font-size: 13px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+/* PROTOTIPO BOX */
+.oro-prototipo-box {
+  background: #FFF9E6;
+  border-radius: 16px;
+  border: 1px solid #FDE047;
+  overflow: hidden;
+}
+
+.oro-prototipo-header {
+  background: #D4AF37;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.oro-prototipo-header h4 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.oro-prototipo-content {
+  padding: 16px 20px;
+}
+
+.oro-prototipo-content h5 {
+  margin: 0 0 12px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #854D0E;
+}
+
+.oro-prototipo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.oro-prototipo-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: #334155;
+  line-height: 1.3;
+}
+
+.check-icon {
+  color: #D4AF37;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* COLUMNA DERECHA */
+.oro-visual-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.oro-badge-circle {
+  background: #113A69;
+  color: white;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+  box-shadow: 0 8px 16px rgba(17, 58, 105, 0.3);
+  border: 3px solid #D4AF37;
+}
+
+.oro-badge-circle span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.oro-badge-circle strong {
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #FFDF73;
+}
+
+.oro-badge-circle small {
+  font-size: 8px;
+  margin-top: 4px;
+  line-height: 1.2;
+}
+
+.oro-stand-image {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  margin-top: -40px; /* pull up slightly under the badge */
+}
+
+.oro-investment-box {
+  background: #0A192F;
+  border-radius: 16px;
+  padding: 20px 40px;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(10, 25, 47, 0.4);
+  position: relative;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.oro-investment-badge {
+  background: linear-gradient(to right, #FFDF73, #D4AF37);
+  color: #0A192F;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 800;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.oro-investment-price {
+  color: white;
+  font-size: 48px;
+  font-weight: 900;
+  margin: 12px 0 0 0;
+  text-shadow: 0 2px 10px rgba(255,255,255,0.2);
+}
+
+.oro-cta-section {
+  text-align: center;
+  width: 100%;
+}
+
+.oro-cta-text {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #113A69;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.oro-cta-btn {
+  background: linear-gradient(135deg, #FFDF73 0%, #D4AF37 100%);
+  color: #0A2540;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+}
+
+.oro-cta-btn:hover {
+  background: linear-gradient(135deg, #FFF0A8 0%, #E6C147 100%);
+  box-shadow: 0 12px 28px rgba(212, 175, 55, 0.5);
+  color: #000;
+}
