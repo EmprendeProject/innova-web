@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import '../App.css'
 import '../styles/Stands2.css'
