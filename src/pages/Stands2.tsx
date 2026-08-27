@@ -373,23 +373,7 @@ export default function Stands2() {
             <div className="s2-divider s2-divider--gold" />
           </div>
 
-          {/* Progression */}
-          <div className="s2-progression reveal">
-            <div className="s2-prog-step">
-              <span className="s2-prog-step__tier s2-prog-step__tier--oro">ORO</span>
-              <span className="s2-prog-step__concept">Presencia</span>
-            </div>
-            <span className="s2-prog-arrow">→</span>
-            <div className="s2-prog-step">
-              <span className="s2-prog-step__tier s2-prog-step__tier--platino">PLATINO</span>
-              <span className="s2-prog-step__concept">Posicionamiento</span>
-            </div>
-            <span className="s2-prog-arrow">→</span>
-            <div className="s2-prog-step">
-              <span className="s2-prog-step__tier s2-prog-step__tier--diamante">DIAMANTE</span>
-              <span className="s2-prog-step__concept">Liderazgo</span>
-            </div>
-          </div>
+
 
           {/* Selector tabs */}
           <div className="s2-tiers-selector">
