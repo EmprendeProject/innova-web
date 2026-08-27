@@ -1,0 +1,70 @@
+.s2-marquee-section {
+  width: 100%;
+  padding: 40px 0;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.s2-marquee-title {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.s2-marquee-container {
+  width: 100%;
+  max-width: 1200px;
+  overflow: hidden;
+  position: relative;
+  /* Fading edges */
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.s2-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-marquee 25s linear infinite;
+}
+
+.s2-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.s2-marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px; /* Adjust based on logo sizes */
+  padding: 0 30px;
+}
+
+.s2-marquee-item img {
+  max-width: 100%;
+  max-height: 80px;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.4s ease;
+}
+
+.s2-marquee-item:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.05);
+}
+
+@keyframes scroll-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Translate by half since we duplicate items */
+}

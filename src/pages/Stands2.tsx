@@ -4,11 +4,13 @@ import '../App.css'
 import '../styles/Stands2.css'
 
 import logoImg from '../assets/elementos graficos/logo innova 360.webp'
-import fondoImg from '../assets/elementos graficos/fondo.webp'
+import fondoImg from '../assets/elementos graficos/fondos/1.png'
+import tablaComparativaImg from '../assets/stands/tabla comparativa.png'
 
 import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
 import WhyExhibit from '../components/WhyExhibit'
 import PlanoViewer from '../components/PlanoViewer'
+import LogoMarquee from '../components/LogoMarquee'
 /* ──────────────────────────────────────────────────────────────
    DATA
 ────────────────────────────────────────────────────────────── */
@@ -165,6 +167,8 @@ export default function Stands2() {
 
         </div>
       </section>
+
+      <LogoMarquee />
 
       {/* ═══════════════════════════════════
           CONCEPT
@@ -677,70 +681,6 @@ export default function Stands2() {
         </div>
       </section>
 
-      {/* ═══════════════════════════════════
-          EXPO FLOOR MAP
-      ═══════════════════════════════════ */}
-      <section className="s2-section" style={{ width: '100%', background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(6px)' }}>
-        <div className="s2-container">
-          <div className="s2-section-header reveal">
-            <span className="s2-eyebrow">Ubicación en la Zona Expo</span>
-            <h2 className="s2-title s2-title--lg s2-mb-16">
-              Tu posición también se ve
-            </h2>
-            <div className="s2-divider" />
-            <p className="s2-body s2-body--center" style={{ maxWidth: '520px', margin: '0 auto' }}>
-              Cada nivel de alianza tiene una presencia diferenciada dentro de la Zona Expo INNOVA 360.
-            </p>
-          </div>
-
-          <div className="s2-expo-map reveal">
-            <div className="s2-floor-container">
-              <span className="s2-floor-label">Plano orientativo · Zona Expo INNOVA 360</span>
-
-              <div className="s2-floor-zones">
-                <div className="s2-floor-zone s2-floor-zone--expo">
-                  📍 ZONA EXPO · ACCESO PRINCIPAL
-                </div>
-                <div className="s2-floor-zone s2-floor-zone--diamante">🔵 DIAMANTE<br /><small>Zona Premium</small></div>
-                <div className="s2-floor-zone s2-floor-zone--platino">⚪ PLATINO<br /><small>Preferencial</small></div>
-                <div className="s2-floor-zone s2-floor-zone--oro">🟡 ORO<br /><small>Patrocinante</small></div>
-              </div>
-
-              <div className="s2-floor-bottom">
-                <div className="s2-floor-zone s2-floor-zone--podcast">🎙️ PODCAST + MEDIOS</div>
-                <div className="s2-floor-zone s2-floor-zone--photocall">📸 PHOTOCALL · EXPERIENCIAS</div>
-              </div>
-
-              <div className="s2-floor-access">
-                <span className="s2-floor-access-tag">↑ Acceso Auditorio</span>
-                <span className="s2-floor-access-tag">↗ Zona Exterior</span>
-              </div>
-            </div>
-
-            <div className="s2-expo-legend">
-              <div className="s2-expo-legend-item">
-                <div className="s2-expo-legend-dot s2-expo-legend-dot--oro" />
-                <span>ORO — Zona Patrocinante</span>
-              </div>
-              <div className="s2-expo-legend-item">
-                <div className="s2-expo-legend-dot s2-expo-legend-dot--platino" />
-                <span>PLATINO — Zona Preferencial</span>
-              </div>
-              <div className="s2-expo-legend-item">
-                <div className="s2-expo-legend-dot s2-expo-legend-dot--diamante" />
-                <span>DIAMANTE — Zona Premium</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '40px' }}>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-text-muted)' }}>MÁS QUE UN ESPACIO.</p>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-diamond)' }}>
-              UNA UBICACIÓN COHERENTE CON EL NIVEL DE TU MARCA.
-            </p>
-          </div>
-        </div>
-      </section>
 
       {/* ═══════════════════════════════════
           EXPERIENCIAS DE MARCA
@@ -802,9 +742,13 @@ export default function Stands2() {
             </div>
           </div>
 
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '48px' }}>
-            <p className="s2-accent-phrase s2-mb-8" style={{ color: 'var(--s2-text)' }}>UNA MARCA. UN MOMENTO.</p>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-blue-dark)' }}>UNA EXPERIENCIA PARA RECORDAR.</p>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
+            <img 
+              src={tablaComparativaImg} 
+              alt="Tabla Comparativa de Stands" 
+              style={{ maxWidth: '100%', height: 'auto' }} 
+              loading="lazy" 
+            />
           </div>
         </div>
       </section>
