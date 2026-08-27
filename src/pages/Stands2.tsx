@@ -6,6 +6,9 @@ import '../styles/Stands2.css'
 import logoImg from '../assets/elementos graficos/logo innova 360.webp'
 import fondoImg from '../assets/elementos graficos/fondo.webp'
 
+import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
+import WhyExhibit from '../components/WhyExhibit'
+import PlanoViewer from '../components/PlanoViewer'
 /* ──────────────────────────────────────────────────────────────
    DATA
 ────────────────────────────────────────────────────────────── */
@@ -142,9 +145,31 @@ export default function Stands2() {
       </section>
 
       {/* ═══════════════════════════════════
+          EDICIÓN PASADA
+      ═══════════════════════════════════ */}
+      <section className="s2-section" style={{ width: '100%', background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(6px)' }}>
+        <div className="s2-container">
+          <div className="s2-section-header reveal">
+            <span className="s2-eyebrow">Lo que ya vivimos juntos</span>
+            <h2 className="s2-title s2-title--lg s2-mb-16">
+              Primera Edición <span className="s2-title--gradient-blue">INNOVA 360</span>
+            </h2>
+            <div className="s2-divider" />
+            <p className="s2-body s2-body--center" style={{ maxWidth: '560px', margin: '0 auto' }}>
+              El primer encuentro dejó una huella real. Estas son las marcas, los momentos
+              y los resultados que construyeron la base de lo que viene.
+            </p>
+          </div>
+
+          <PastEditionCarouselStands2 />
+
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════
           CONCEPT
       ═══════════════════════════════════ */}
-      <section className="s2-section" style={{ background: 'rgba(255,255,255,0.78)', backdropFilter: 'blur(6px)', width: '100%' }}>
+      <section className="s2-section" style={{ display: 'none', background: 'rgba(255,255,255,0.78)', backdropFilter: 'blur(6px)', width: '100%' }}>
         <div className="s2-container">
           <div className="s2-section-header reveal">
             <span className="s2-eyebrow">El concepto central</span>
@@ -161,7 +186,7 @@ export default function Stands2() {
             </p>
 
             <div className="reveal" style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '48px' }}>
-              {['RECONOCIDA.', 'RECORDADA.', 'ASOCIADA CON LA EVOLUCIÓN DEL SECTOR.'].map((t, i) => (
+              {['TU MARCA SE VUELVE RECONOCIDA, RECORDADA Y ASOCIADA CON LA EVOLUCIÓN DEL SECTOR.'].map((t, i) => (
                 <div
                   key={t}
                   className="s2-accent-phrase"
@@ -186,6 +211,12 @@ export default function Stands2() {
           </div>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════
+          WHY EXHIBIT
+      ═══════════════════════════════════ */}
+      <WhyExhibit />
+
 
       {/* ═══════════════════════════════════
           AUDIENCE
@@ -231,17 +262,7 @@ export default function Stands2() {
             ))}
           </div>
 
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '48px' }}>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-gold-dark)' }}>
-              PROFESIONALES QUE DECIDEN.
-            </p>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-text)' }}>
-              EMPRESAS QUE CRECEN.
-            </p>
-            <p className="s2-accent-phrase" style={{ color: 'var(--s2-blue-dark)' }}>
-              MARCAS QUE IMPULSAN EL SECTOR.
-            </p>
-          </div>
+
         </div>
       </section>
 
@@ -251,7 +272,7 @@ export default function Stands2() {
       <section className="s2-section" style={{ width: '100%', background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(6px)' }}>
         <div className="s2-container">
           <div className="s2-section-header reveal">
-            <span className="s2-eyebrow">Los 5 pilares para las marcas</span>
+            <span className="s2-eyebrow">Los 4 pilares para las marcas</span>
             <h2 className="s2-title s2-title--lg s2-mb-16">
               Más que visibilidad.<br />
               <span className="s2-title--gradient-gold">Una posición estratégica.</span>
@@ -265,7 +286,6 @@ export default function Stands2() {
               { n: '02', name: 'Visibilidad', desc: 'Multiplica los puntos de contacto dentro de INNOVA 360.' },
               { n: '03', name: 'Conexión', desc: 'Acércate a profesionales, empresas, referentes y potenciales aliados.' },
               { n: '04', name: 'Oportunidades', desc: 'Genera conversaciones y nuevas posibilidades comerciales.' },
-              { n: '05', name: 'Asociación', desc: 'Vincula tu marca con conocimiento, innovación y evolución profesional.' },
             ].map(p => (
               <div key={p.n} className="s2-pillar reveal-scale">
                 <span className="s2-pillar__number">{p.n}</span>
@@ -305,12 +325,12 @@ export default function Stands2() {
 
           <div className="s2-exp-grid">
             {[
-              { icon: '🎓', name: 'Formación',        sub: 'Conocimiento y autoridad' },
-              { icon: '🤝', name: 'Networking',       sub: 'Relaciones y oportunidades' },
+              { icon: '🎓', name: 'Formación', sub: 'Conocimiento y autoridad' },
+              { icon: '🤝', name: 'Networking', sub: 'Relaciones y oportunidades' },
               { icon: '🎙️', name: 'Podcast + Medios', sub: 'Contenido y amplificación' },
-              { icon: '✨', name: 'Experiencias',      sub: 'Interacción y recordación' },
-              { icon: '📱', name: 'Digital',           sub: 'Visibilidad antes, durante y después' },
-              { icon: '🏪', name: 'Zona Expo',         sub: 'Exhibición e interacción comercial' },
+              { icon: '✨', name: 'Experiencias', sub: 'Interacción y recordación' },
+              { icon: '📱', name: 'Digital', sub: 'Visibilidad antes, durante y después' },
+              { icon: '🏪', name: 'Zona Expo', sub: 'Exhibición e interacción comercial' },
             ].map(e => (
               <div key={e.name} className="s2-exp-card reveal-scale">
                 <span className="s2-exp-card__icon">{e.icon}</span>
@@ -325,6 +345,13 @@ export default function Stands2() {
             <p className="s2-accent-phrase" style={{ color: 'var(--s2-diamond)' }}>MÚLTIPLES PUNTOS DE CONTACTO.</p>
           </div>
         </div>
+      </section>
+
+      <section className="s2-section" style={{ width: '100%', backgroundColor: '#050B14', padding: '80px 0' }}>
+        <h2 className="why-exhibit-title reveal" style={{ marginBottom: '2rem', width: '100%', textAlign: 'center', color: '#ffffff' }}>
+          PLANO DEL EVENTO
+        </h2>
+        <PlanoViewer />
       </section>
 
       {/* ═══════════════════════════════════
@@ -785,7 +812,7 @@ export default function Stands2() {
       {/* ═══════════════════════════════════
           GOAL SELECTOR
       ═══════════════════════════════════ */}
-      <section className="s2-section" style={{ width: '100%', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(6px)' }}>
+      <section className="s2-section" style={{ display: 'none', width: '100%', background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(6px)' }}>
         <div className="s2-container">
           <div className="s2-section-header reveal">
             <span className="s2-eyebrow">¿Cuál es tu objetivo?</span>
@@ -875,48 +902,37 @@ export default function Stands2() {
           </div>
 
           <div className="s2-contact-grid reveal">
-            <a href="https://wa.me/584241393067" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
-              <span className="s2-contact-item__icon">📞</span>
-              <div>
-                <span className="s2-contact-item__label">WhatsApp</span>
-                <span className="s2-contact-item__value">0424-139 3067</span>
-              </div>
-            </a>
-            <a href="https://wa.me/584127271018" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
-              <span className="s2-contact-item__icon">📞</span>
-              <div>
-                <span className="s2-contact-item__label">WhatsApp</span>
-                <span className="s2-contact-item__value">0412-727 1018</span>
-              </div>
-            </a>
-            <a href="https://wa.me/584228638329" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
-              <span className="s2-contact-item__icon">📞</span>
-              <div>
-                <span className="s2-contact-item__label">WhatsApp</span>
-                <span className="s2-contact-item__value">0422-863 8329</span>
-              </div>
-            </a>
-            <a href="mailto:eventoinnova360@gmail.com" className="s2-contact-item">
-              <span className="s2-contact-item__icon">✉️</span>
-              <div>
-                <span className="s2-contact-item__label">Correo</span>
-                <span className="s2-contact-item__value">eventoinnova360@gmail.com</span>
-              </div>
-            </a>
-            <a href="https://innova360ve.com" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
-              <span className="s2-contact-item__icon">🌐</span>
-              <div>
-                <span className="s2-contact-item__label">Web</span>
-                <span className="s2-contact-item__value">innova360ve.com</span>
-              </div>
-            </a>
-            <a href="https://instagram.com/innova360ve" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
-              <span className="s2-contact-item__icon">📸</span>
-              <div>
-                <span className="s2-contact-item__label">Instagram</span>
-                <span className="s2-contact-item__value">@innova360ve</span>
-              </div>
-            </a>
+            <div className="s2-contact-group">
+              <span className="s2-contact-group__title">Líneas de Atención</span>
+              <a href="https://wa.me/584241393067" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
+                <span className="s2-contact-item__icon">📞</span>
+                <span className="s2-contact-item__label">0424-139 3067</span>
+              </a>
+              <a href="https://wa.me/584127271018" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
+                <span className="s2-contact-item__icon">📞</span>
+                <span className="s2-contact-item__label">0412-727 1018</span>
+              </a>
+              <a href="https://wa.me/584228638329" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
+                <span className="s2-contact-item__icon">📞</span>
+                <span className="s2-contact-item__label">0422-863 8329</span>
+              </a>
+            </div>
+
+            <div className="s2-contact-group">
+              <span className="s2-contact-group__title">Más Información</span>
+              <a href="mailto:eventoinnova360@gmail.com" className="s2-contact-item">
+                <span className="s2-contact-item__icon">✉️</span>
+                <span className="s2-contact-item__label">eventoinnova360@gmail.com</span>
+              </a>
+              <a href="https://innova360ve.com" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
+                <span className="s2-contact-item__icon">🌐</span>
+                <span className="s2-contact-item__label">innova360ve.com</span>
+              </a>
+              <a href="https://instagram.com/innova360ve" target="_blank" rel="noopener noreferrer" className="s2-contact-item">
+                <span className="s2-contact-item__icon">📸</span>
+                <span className="s2-contact-item__label">@innova360ve</span>
+              </a>
+            </div>
           </div>
 
           <div className="reveal" style={{ marginTop: '64px' }}>
