@@ -1,12 +1,13 @@
 .why-exhibit-container {
   width: 100%;
-  padding: 40px 0;
+  max-width: var(--s2-max-w, 1200px);
+  margin: 0 auto 1.5rem auto;
+  padding: 40px 24px;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 1;
-  margin-bottom: 1.5rem;
 }
 
 /* Subtle glowing orb in the background for technological feel */
