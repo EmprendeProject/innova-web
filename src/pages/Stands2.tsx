@@ -6,6 +6,7 @@ import '../styles/Stands2.css'
 import logoImg from '../assets/elementos graficos/logo innova 360.webp'
 import fondoImg from '../assets/elementos graficos/fondos/1.png'
 import tablaComparativaImg from '../assets/stands/tabla comparativa.png'
+import experiencia1Img from '../assets/stands/experiencia 1.png'
 
 import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
 import WhyExhibit from '../components/WhyExhibit'
@@ -742,7 +743,13 @@ export default function Stands2() {
             </div>
           </div>
 
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
+          <div className="reveal" style={{ textAlign: 'center', marginTop: '48px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
+            <img 
+              src={experiencia1Img} 
+              alt="Experiencia de Marca" 
+              style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }} 
+              loading="lazy" 
+            />
             <img 
               src={tablaComparativaImg} 
               alt="Tabla Comparativa de Stands" 

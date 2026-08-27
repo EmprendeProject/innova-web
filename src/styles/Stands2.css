@@ -796,7 +796,7 @@
   box-shadow: 0 4px 24px rgba(15,23,42,0.08);
 }
 
-.s2-table { width: 100%; border-collapse: collapse; min-width: 580px; }
+.s2-table { width: 100%; border-collapse: collapse; min-width: 760px; }
 
 .s2-table thead th {
   padding: 20px 16px;
