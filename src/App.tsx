@@ -4,6 +4,7 @@ import Entradas from './pages/Entradas'
 import Stands from './pages/Stands'
 import Stands2 from './pages/Stands2'
 import Navbar from './components/Navbar'
+import FloatingWhatsApp from './components/FloatingWhatsApp'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/stands" element={<Stands />} />
         <Route path="/stands2" element={<Stands2 />} />
       </Routes>
+      <FloatingWhatsApp />
     </BrowserRouter>
   )
 }

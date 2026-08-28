@@ -35,10 +35,10 @@ function Home() {
             COMPRAR ENTRADAS
           </Link>
 
-          {/* Stands → navega a /stands (SPA interno) */}
+          {/* Stands → navega a /stands2 (SPA interno) */}
           <Link
             id="btn-stands"
-            to="/stands"
+            to="/stands2"
             className="cta-btn cta-btn--outline animate-fade-up"
             style={{ animationDelay: '0.57s' }}
           >

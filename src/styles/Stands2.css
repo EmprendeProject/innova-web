@@ -180,16 +180,16 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(29,78,216,0.10);
-  border: 1px solid rgba(29,78,216,0.30);
+  background: rgba(0, 91, 216, 0.05);
+  border: 1px solid rgba(0, 91, 216, 0.2);
   border-radius: 100px;
   padding: 8px 20px;
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.85);
+  color: #005bd8;
   margin-bottom: 32px;
   backdrop-filter: blur(8px);
 }
@@ -221,7 +221,7 @@
   font-weight: 600;
   letter-spacing: 5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.75);
+  color: #001a58;
   margin-bottom: 16px;
 }
 
@@ -232,11 +232,11 @@
   line-height: 0.95;
   text-transform: uppercase;
   margin-bottom: 24px;
-  background: linear-gradient(135deg, #d4af37, #f3e5ab, #aa7c11);
+  background: linear-gradient(135deg, #001a58 0%, #005bd8 50%, #00b4d8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0px 2px 4px rgba(201,144,12,0.2));
+  filter: drop-shadow(0px 4px 8px rgba(0,26,88,0.15));
 }
 
 .s2-hero-subheadline {
@@ -244,7 +244,7 @@
   font-size: clamp(16px, 2.5vw, 22px);
   font-style: italic;
   font-weight: 700;
-  color: rgba(255,255,255,0.9);
+  color: #334155;
   margin-bottom: 40px;
   letter-spacing: 1px;
 }
@@ -269,15 +269,15 @@
 
 .s2-date-clean {
   flex: 1;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,26,88,0.08);
   border-radius: 8px;
   padding: 12px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px rgba(0,26,88,0.05);
   backdrop-filter: blur(6px);
 }
 
@@ -290,14 +290,14 @@
   font-family: 'Barlow Condensed', sans-serif;
   font-size: 18px;
   font-weight: 900;
-  color: #ffffff;
+  color: #001a58;
 }
 
 .s2-date-clean__label {
   font-size: 10px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: #64748b;
   margin-top: 4px;
 }
 
@@ -332,7 +332,7 @@
 .s2-btn:active { transform: scale(0.97); }
 
 .s2-btn--primary {
-  background: var(--s2-blue-gradient);
+  background: linear-gradient(135deg, #001a58 0%, #005bd8 100%);
   color: #fff;
   box-shadow: 0 4px 14px rgba(29,78,216,0.3);
 }

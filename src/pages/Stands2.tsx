@@ -94,7 +94,7 @@ export default function Stands2() {
           HERO
       ═══════════════════════════════════ */}
       <section className="s2-hero s2-hero--light" style={{ backgroundImage: `url(${fondoChicaImg})`, backgroundSize: 'cover', backgroundPosition: 'center top', backgroundRepeat: 'no-repeat', position: 'relative' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(5,11,30,0.65) 0%, rgba(5,11,30,0.5) 60%, rgba(5,11,30,0.7) 100%)', zIndex: 0 }} />
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.75) 60%, rgba(255,255,255,1) 100%)', zIndex: 0 }} />
         <div className="s2-hero-grid" aria-hidden="true" />
         <div className="s2-hero-content">
           <div className="s2-hero-badge animate-fade-down">
@@ -115,7 +115,7 @@ export default function Stands2() {
           </p>
 
           <h1 className="s2-hero-main-title animate-fade-up" style={{ animationDelay: '160ms' }}>
-            ¿QUIERES TENER UN STAND<br />O SER PATROCINANTE?
+            se aliado estrategico<br />DE INNOVA 360 2026
           </h1>
 
           <p className="s2-hero-subheadline animate-fade-up" style={{ animationDelay: '200ms' }}>
@@ -157,10 +157,10 @@ export default function Stands2() {
       <section className="s2-stats s2-plano-section" style={{ background: 'rgba(5,8,25,0.97)' }}>
         <div className="s2-stats-grid">
           {([
-            { prefix: '',  num: 2,   label: 'Días de encuentro' },
-            { prefix: '+', num: 20,  label: 'Conferencistas'   },
-            { prefix: '+', num: 30,  label: 'Marcas Aliadas'   },
-            { prefix: '+', num: 300, label: 'Profesionales'    },
+            { prefix: '', num: 2, label: 'Días de encuentro' },
+            { prefix: '+', num: 20, label: 'Conferencistas' },
+            { prefix: '+', num: 30, label: 'Marcas Aliadas' },
+            { prefix: '+', num: 300, label: 'Profesionales' },
           ] as const).map(s => (
             <StatItem key={s.label} prefix={s.prefix} target={s.num} label={s.label} />
           ))}
@@ -446,7 +446,7 @@ export default function Stands2() {
           </div>
 
           <div className="reveal" style={{ textAlign: 'center', marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', width: '100%' }}>
               <img
                 src={experiencia1Img}
