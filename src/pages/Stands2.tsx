@@ -1,4 +1,6 @@
+import React from 'react'
 import { useReveal } from '../hooks/useReveal'
+import { useCountUp } from '../hooks/useCountUp'
 import '../App.css'
 import '../styles/Stands2.css'
 
@@ -7,13 +9,25 @@ import fondoChicaImg from '../assets/elementos graficos/fondos/fondo chica.png'
 import tablaComparativaImg from '../assets/stands/tabla comparativa.png'
 import experiencia1Img from '../assets/stands/experiencia 1.png'
 import experiencia2Img from '../assets/stands/experiencia 2.png'
+
+// Logos de empresas aliadas
+import logoAlnatural    from '../assets/logos de empresas/LOGO ALNATURAL-CF.png'
+import logoDcBelleza    from '../assets/logos de empresas/LOGO DC BELLEZA VIP-CF.png'
+import logoDrJose       from '../assets/logos de empresas/LOGO DR JOSE LUIS BLANCO-CF.png'
+import logoFigurasRed   from '../assets/logos de empresas/LOGO FIGURAS RED-CF.png'
+import logoInterlight   from '../assets/logos de empresas/LOGO INTERLIGHT-CF.png'
+import logoKiripharma   from '../assets/logos de empresas/LOGO KIRIPHARMA-CF.png'
+import logoSmarttea     from '../assets/logos de empresas/smarttea.png'
 import prototipo1Img from '../assets/stands/prototipo 1.png'
 import prototipo2Img from '../assets/stands/prorotipo 2.png'
+import prototipo3Img from '../assets/stands/prototipo 3.png'
 
 import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
 import WhyExhibit from '../components/WhyExhibit'
 import PlanoViewer from '../components/PlanoViewer'
 import LogoMarquee from '../components/LogoMarquee'
+import PrototiposCarousel from '../components/PrototiposCarousel'
+import InversionComercial from '../components/InversionComercial'
 /* ──────────────────────────────────────────────────────────────
    DATA
 ────────────────────────────────────────────────────────────── */
@@ -47,6 +61,19 @@ const DIAMANTE_BENEFITS = [
   { label: 'Mención precongreso en Circuito Unión Radio' },
   { label: 'Hasta 6 credenciales VIP' },
 ]
+
+/* ──────────────────────────────────────────────────────────────
+   STAT ITEM — count-up animation
+────────────────────────────────────────────────────────────── */
+function StatItem({ prefix, target, label }: { prefix: string; target: number; label: string }) {
+  const { count, ref } = useCountUp(target, 1800)
+  return (
+    <div className="s2-stat-item" ref={ref as React.RefObject<HTMLDivElement>}>
+      <span className="s2-stat-number">{prefix}{count}</span>
+      <span className="s2-stat-label">{label}</span>
+    </div>
+  )
+}
 
 /* ──────────────────────────────────────────────────────────────
    COMPONENT
@@ -95,7 +122,7 @@ export default function Stands2() {
           </p>
 
           <h1 className="s2-hero-main-title animate-fade-up" style={{ animationDelay: '160ms' }}>
-            ¿QUÉ LUGAR QUIERES<br />QUE OCUPE TU<br />MARCA?
+            ¿QUIERES TENER UN STAND<br />O SER PATROCINANTE?
           </h1>
 
           <p className="s2-hero-subheadline animate-fade-up" style={{ animationDelay: '200ms' }}>
@@ -120,8 +147,12 @@ export default function Stands2() {
           </div>
 
           <div className="s2-hero-cta-single animate-fade-up" style={{ animationDelay: '280ms' }}>
-            <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" className="s2-btn s2-btn--primary s2-btn--lg">
+            <a href={WA_GENERAL} target="_blank" rel="noopener noreferrer" className="s2-btn s2-btn--hero">
               QUIERO SER ALIADO
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '12px' }}>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </a>
           </div>
         </div>
@@ -130,18 +161,15 @@ export default function Stands2() {
       {/* ═══════════════════════════════════
           STATS
       ═══════════════════════════════════ */}
-      <section className="s2-stats s2-plano-section">
+      <section className="s2-stats s2-plano-section" style={{ background: 'rgba(5,8,25,0.97)' }}>
         <div className="s2-stats-grid">
-          {[
-            { num: '2', label: 'Días de encuentro' },
-            { num: '+20', label: 'Conferencistas' },
-            { num: '+30', label: 'Marcas Aliadas' },
-            { num: '+300', label: 'Profesionales' },
-          ].map(s => (
-            <div key={s.label} className="s2-stat-item reveal">
-              <span className="s2-stat-number">{s.num}</span>
-              <span className="s2-stat-label">{s.label}</span>
-            </div>
+          {([
+            { prefix: '',  num: 2,   label: 'Días de encuentro' },
+            { prefix: '+', num: 20,  label: 'Conferencistas'   },
+            { prefix: '+', num: 30,  label: 'Marcas Aliadas'   },
+            { prefix: '+', num: 300, label: 'Profesionales'    },
+          ] as const).map(s => (
+            <StatItem key={s.label} prefix={s.prefix} target={s.num} label={s.label} />
           ))}
         </div>
       </section>
@@ -169,6 +197,7 @@ export default function Stands2() {
       </section>
 
       <LogoMarquee />
+
 
       {/* ═══════════════════════════════════
           CONCEPT
@@ -279,10 +308,14 @@ export default function Stands2() {
           PLANO DEL EVENTO
         </h2>
         <PlanoViewer />
-        <p style={{ color: 'rgba(255, 255, 255, 0.9)', textAlign: 'center', marginTop: '3rem', padding: '0 1rem', fontSize: '18px', fontWeight: 500 }}>
+        <p style={{ color: 'rgba(255, 255, 255, 0.9)', textAlign: 'center', marginTop: '3rem', padding: '0 1rem', fontSize: '18px', fontWeight: 500, marginBottom: '60px' }}>
           Visualiza la zona de stands y luego selecciona la ubicación ideal para tu stand.
         </p>
+
+        <PrototiposCarousel />
       </section>
+
+      <InversionComercial />
 
       {/* ═══════════════════════════════════
           ALIANZAS — SELECTOR + CARDS
@@ -390,7 +423,7 @@ export default function Stands2() {
                   </a>
                 </div>
                 <div className="s2-tier-card__visual" style={{ padding: 0, overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <img src={prototipo2Img} alt="Stand Diamante" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
+                  <img src={prototipo3Img} alt="Stand Diamante" style={{ width: '100%', height: '100%', objectFit: 'cover' }} loading="lazy" />
                 </div>
               </div>
               <p className="s2-tier-message">
@@ -419,19 +452,31 @@ export default function Stands2() {
             <div className="s2-divider s2-divider--gold" />
           </div>
 
-          <div className="reveal" style={{ textAlign: 'center', marginTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
-            <img
-              src={experiencia1Img}
-              alt="Experiencia de Marca 1"
-              style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
-              loading="lazy"
-            />
-            <img
-              src={experiencia2Img}
-              alt="Experiencia de Marca 2"
-              style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
-              loading="lazy"
-            />
+          <div className="reveal" style={{ textAlign: 'center', marginTop: '24px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '32px' }}>
+            
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', width: '100%' }}>
+              <img
+                src={experiencia1Img}
+                alt="Experiencia de Marca 1"
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
+                loading="lazy"
+              />
+              <button className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px' }}>
+                Adquirir patrocinio
+              </button>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', width: '100%' }}>
+              <img
+                src={experiencia2Img}
+                alt="Experiencia de Marca 2"
+                style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
+                loading="lazy"
+              />
+              <button className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px' }}>
+                Adquirir patrocinio
+              </button>
+            </div>
             <img
               src={tablaComparativaImg}
               alt="Tabla Comparativa de Stands"

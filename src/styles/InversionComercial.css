@@ -1,0 +1,321 @@
+/* ══════════════════════════════════════
+   INVERSIÓN DEL ÁREA COMERCIAL
+══════════════════════════════════════ */
+
+/* ── Carousel ── */
+.inv-carousel-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 24px;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.inv-carousel-container:not(.inv-dragging) {
+  cursor: grab;
+}
+
+.inv-dragging .inv-carousel-track {
+  transition: none;
+  cursor: grabbing;
+}
+
+.inv-carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inv-carousel-slide {
+  min-width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* ── Carousel Dots ── */
+.inv-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.inv-dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 4px;
+  border: none;
+  background: rgba(0, 26, 88, 0.15);
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.inv-dot--active {
+  background: rgba(0, 26, 88, 0.15);
+  width: 48px;
+}
+
+.inv-dot--selected {
+  background: rgba(0, 26, 88, 0.4);
+  width: 48px;
+}
+
+.inv-dot--active::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #001a58, #005bd8);
+  border-radius: 4px;
+  animation: slideFill 3s linear forwards;
+}
+
+@keyframes slideFill {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+/* ── Card ── */
+.inv-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 40px 32px 24px;
+  box-shadow: 0 10px 40px rgba(0, 26, 88, 0.05);
+  border: 1px solid rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.inv-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inv-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(0, 26, 88, 0.08);
+  border-color: rgba(0, 91, 216, 0.15);
+}
+
+.inv-card--highlight {
+  border: 1px solid rgba(0, 91, 216, 0.2);
+  box-shadow: 0 12px 45px rgba(0, 91, 216, 0.08);
+}
+
+.inv-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: linear-gradient(135deg, #005bd8, #00b4d8);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 91, 216, 0.3);
+  z-index: 10;
+}
+
+/* Visual Render */
+.inv-card-visual {
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.inv-img-wrapper {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inv-card:hover .inv-img-wrapper {
+  transform: scale(1.06);
+}
+
+.inv-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Adjusting existing renders to match "architectural greyish" style somewhat */
+  filter: grayscale(20%) brightness(1.05) contrast(1.1);
+  z-index: 2;
+}
+
+/* Mockup Dimensional lines */
+.inv-dimensions {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.inv-card:hover .inv-dimensions {
+  opacity: 0.6;
+}
+
+.inv-dim-x, .inv-dim-y {
+  position: absolute;
+  border-bottom: 1px dashed #64748b;
+}
+
+.inv-dim-x {
+  width: 40%;
+  bottom: 15%;
+  left: 10%;
+  transform: rotate(25deg);
+}
+
+.inv-dim-x::before, .inv-dim-x::after {
+  content: ''; position: absolute; top: -3px; width: 1px; height: 7px; background: #64748b;
+}
+.inv-dim-x::before { left: 0; }
+.inv-dim-x::after { right: 0; }
+
+.inv-dim-y {
+  width: 30%;
+  bottom: 15%;
+  right: 15%;
+  transform: rotate(-25deg);
+}
+.inv-dim-y::before, .inv-dim-y::after {
+  content: ''; position: absolute; top: -3px; width: 1px; height: 7px; background: #64748b;
+}
+.inv-dim-y::before { left: 0; }
+.inv-dim-y::after { right: 0; }
+
+/* Content */
+.inv-card-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0 16px;
+}
+
+.inv-card-measurements {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.inv-medida {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 16px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.inv-area {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* Price Tag */
+.inv-card-price {
+  background: linear-gradient(135deg, #001a58, #005bd8);
+  border-radius: 16px;
+  padding: 16px 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  box-shadow: 0 8px 24px rgba(0, 91, 216, 0.25);
+  transition: box-shadow 0.3s ease;
+}
+
+.inv-card:hover .inv-card-price {
+  box-shadow: 0 12px 32px rgba(0, 91, 216, 0.4);
+}
+
+.inv-currency {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.inv-amount {
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+/* Card Footer (Includes Text) */
+.inv-card-footer {
+  width: 100%;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(0, 26, 88, 0.06);
+  text-align: center;
+  z-index: 2;
+}
+
+.inv-card-footer p {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Call to Action Button ── */
+.inv-action-wrap {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.inv-primary-btn {
+  background: linear-gradient(135deg, #001a58, #005bd8);
+  color: #fff;
+  border: none;
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 91, 216, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: 0.5px;
+}
+
+.inv-primary-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 91, 216, 0.35);
+}
