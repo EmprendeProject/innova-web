@@ -10,14 +10,7 @@ import tablaComparativaImg from '../assets/stands/tabla comparativa.png'
 import experiencia1Img from '../assets/stands/experiencia 1.png'
 import experiencia2Img from '../assets/stands/experiencia 2.png'
 
-// Logos de empresas aliadas
-import logoAlnatural    from '../assets/logos de empresas/LOGO ALNATURAL-CF.png'
-import logoDcBelleza    from '../assets/logos de empresas/LOGO DC BELLEZA VIP-CF.png'
-import logoDrJose       from '../assets/logos de empresas/LOGO DR JOSE LUIS BLANCO-CF.png'
-import logoFigurasRed   from '../assets/logos de empresas/LOGO FIGURAS RED-CF.png'
-import logoInterlight   from '../assets/logos de empresas/LOGO INTERLIGHT-CF.png'
-import logoKiripharma   from '../assets/logos de empresas/LOGO KIRIPHARMA-CF.png'
-import logoSmarttea     from '../assets/logos de empresas/smarttea.png'
+// Logos de empresas aliadas (eliminados por no usarse)
 import prototipo1Img from '../assets/stands/prototipo 1.png'
 import prototipo2Img from '../assets/stands/prorotipo 2.png'
 import prototipo3Img from '../assets/stands/prototipo 3.png'

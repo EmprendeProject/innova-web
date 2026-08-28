@@ -108,7 +108,7 @@ export default function InversionComercial() {
             className="inv-carousel-track" 
             style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           >
-            {STANDS.map((stand, i) => (
+            {STANDS.map((stand) => (
               <div key={stand.id} className="inv-carousel-slide">
                 <div className={`inv-card ${stand.recomendado ? 'inv-card--highlight' : ''}`}>
                   {stand.recomendado && (
