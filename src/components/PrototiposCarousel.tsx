@@ -21,7 +21,7 @@ export default function PrototiposCarousel() {
       <div className="proto-header reveal">
         <span className="proto-eyebrow">Diseños oficiales</span>
         <h2 className="proto-title">
-          Nuestros <span className="proto-title--gold">Prototipos de Stands</span>
+          Nuestros Prototipos de Stands
         </h2>
         <div className="proto-divider" />
       </div>

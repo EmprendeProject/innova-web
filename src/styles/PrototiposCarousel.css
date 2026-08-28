@@ -22,7 +22,7 @@
   font-weight: 700;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: #c9900c;
+  color: #ffffff;
   margin-bottom: 12px;
 }
 
@@ -34,8 +34,8 @@
   margin: 0 0 16px;
 }
 
-.proto-title--gold {
-  background: linear-gradient(135deg, #d4af37, #f3e5ab, #aa7c11);
+.proto-title--blue {
+  background: linear-gradient(135deg, #001a58, #005bd8, #00b4d8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,7 +44,7 @@
 .proto-divider {
   width: 48px;
   height: 3px;
-  background: linear-gradient(90deg, #d4af37, #aa7c11);
+  background: linear-gradient(90deg, #001a58, #005bd8);
   border-radius: 2px;
   margin: 0 auto;
 }
@@ -153,9 +153,9 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 2px solid rgba(201, 144, 12, 0.4);
+  border: 2px solid rgba(0, 91, 216, 0.4);
   background: rgba(255, 255, 255, 0.9);
-  color: #c9900c;
+  color: #005bd8;
   font-size: 28px;
   line-height: 1;
   cursor: pointer;
@@ -167,9 +167,9 @@
 }
 
 .proto-btn:hover {
-  background: #c9900c;
+  background: #005bd8;
   color: #fff;
-  border-color: #c9900c;
+  border-color: #005bd8;
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -196,7 +196,7 @@
 }
 
 .proto-dot--active {
-  background: #c9900c;
+  background: #005bd8;
   width: 24px;
   border-radius: 4px;
 }

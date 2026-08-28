@@ -582,7 +582,13 @@ export default function Stands2() {
             </div>
           </div>
 
-          <div className="reveal" style={{ marginTop: '64px' }}>
+          <div className="reveal" style={{ marginTop: '64px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <img 
+              src={logoImg} 
+              alt="INNOVA 360" 
+              style={{ width: '160px', height: 'auto', marginBottom: '32px', opacity: 0.85 }}
+              loading="lazy"
+            />
             <p className="s2-accent-phrase s2-mb-8" style={{ color: '#94a3b8' }}>
               CONOCIMIENTO QUE CONECTA.
             </p>
