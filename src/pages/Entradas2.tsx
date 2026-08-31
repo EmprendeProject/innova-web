@@ -24,7 +24,6 @@ function StatItem({ prefix, target, label }: { prefix: string; target: number; l
 export default function Entradas2() {
   useReveal()
   
-  const [activeTab, setActiveTab] = useState('19nov')
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
   // Intersection Observer for reveal animations
