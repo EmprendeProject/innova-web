@@ -2,8 +2,28 @@ import React, { useState, useEffect } from 'react'
 import '../App.css'
 import '../styles/Entradas2.css'
 import logoImg from '../assets/elementos graficos/logo innova 360.webp'
+import { useCountUp } from '../hooks/useCountUp'
+import { useReveal } from '../hooks/useReveal'
+import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
+import LogoMarquee from '../components/LogoMarquee'
+import WhyExhibit from '../components/WhyExhibit'
+
+/* ──────────────────────────────────────────────────────────────
+   STAT ITEM — count-up animation
+────────────────────────────────────────────────────────────── */
+function StatItem({ prefix, target, label }: { prefix: string; target: number; label: string }) {
+  const { count, ref } = useCountUp(target, 1800)
+  return (
+    <div className="e2-stat-item" ref={ref as React.RefObject<HTMLDivElement>}>
+      <span className="e2-stat-number">{prefix}{count}</span>
+      <span className="e2-stat-label">{label}</span>
+    </div>
+  )
+}
 
 export default function Entradas2() {
+  useReveal()
+  
   const [activeTab, setActiveTab] = useState('19nov')
   const [activeFaq, setActiveFaq] = useState<number | null>(null)
 
@@ -50,11 +70,6 @@ export default function Entradas2() {
         <div className="e2-hero-grid" aria-hidden="true"></div>
         <div className="e2-hero-content e2-reveal">
           
-          <div className="e2-hero-badge">
-            <span className="e2-hero-badge-dot" />
-            21 NOV · EXPERIENCIA INNOVA · FACIAL 360
-          </div>
-          
           <img src={logoImg} alt="INNOVA 360" className="e2-hero-logo" loading="eager" />
           
           <p className="e2-hero-tagline">
@@ -94,6 +109,22 @@ export default function Entradas2() {
       </section>
 
       {/* =========================================
+          STATS
+          ========================================= */}
+      <section className="e2-stats e2-plano-section">
+        <div className="e2-stats-grid">
+          {([
+            { prefix: '', num: 2, label: 'Días de encuentro' },
+            { prefix: '+', num: 20, label: 'Conferencistas' },
+            { prefix: '+', num: 30, label: 'Marcas Aliadas' },
+            { prefix: '+', num: 300, label: 'Profesionales' },
+          ] as const).map(s => (
+            <StatItem key={s.label} prefix={s.prefix} target={s.num} label={s.label} />
+          ))}
+        </div>
+      </section>
+
+      {/* =========================================
           MUCHO MÁS QUE UN CONGRESO
           ========================================= */}
       <section id="experiencia" className="e2-section">
@@ -126,6 +157,30 @@ export default function Entradas2() {
           </div>
         </div>
       </section>
+
+      {/* =========================================
+          EDICIÓN PASADA & MARCAS & WHY EXHIBIT
+          ========================================= */}
+      <section className="e2-section" style={{ width: '100%', background: 'rgba(255,255,255,0.88)', backdropFilter: 'blur(6px)' }}>
+        <div className="e2-container">
+          <div className="e2-reveal" style={{ textAlign: 'center' }}>
+            <span className="e2-eyebrow">Lo que ya vivimos juntos</span>
+            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
+              Primera Edición <span className="e2-title--gradient-blue">INNOVA 360</span>
+            </h2>
+            <div className="e2-divider" />
+            <p className="e2-body e2-body--center" style={{ maxWidth: '560px', margin: '0 auto' }}>
+              El primer encuentro dejó una huella real. Estas son las marcas, los momentos
+              y los resultados que construyeron la base de lo que viene.
+            </p>
+          </div>
+          <PastEditionCarouselStands2 />
+        </div>
+      </section>
+
+      <LogoMarquee />
+
+      <WhyExhibit />
 
       {/* =========================================
           ENTRADAS (TIERS)
@@ -361,114 +416,7 @@ export default function Entradas2() {
         </div>
       </section>
 
-      {/* =========================================
-          PROGRAMA
-          ========================================= */}
-      <section className="e2-section">
-        <div className="e2-container">
-          <div className="e2-reveal" style={{ textAlign: 'center' }}>
-            <span className="e2-eyebrow">Programa</span>
-            <h2 className="e2-title e2-title--lg">Dos días para <span className="e2-title--gradient-blue">ampliar la mirada</span></h2>
-          </div>
 
-          <div className="e2-tabs e2-reveal">
-            <button className={`e2-tab-btn ${activeTab === '19nov' ? 'active' : ''}`} onClick={() => setActiveTab('19nov')}>19 NOV</button>
-            <button className={`e2-tab-btn ${activeTab === '20nov' ? 'active' : ''}`} onClick={() => setActiveTab('20nov')}>20 NOV</button>
-            <button className={`e2-tab-btn ${activeTab === '21nov' ? 'active' : ''}`} onClick={() => setActiveTab('21nov')}>21 NOV · FACIAL 360</button>
-          </div>
-
-          <div className="e2-reveal" style={{ maxWidth: '800px', margin: '0 auto' }}>
-            {activeTab === '19nov' && (
-              <>
-                <h3 style={{ textAlign: 'center', marginBottom: '24px', fontFamily: 'Barlow Condensed', fontSize: '24px', fontWeight: 800, textTransform: 'uppercase' }}>RECUPERACIÓN, BIENESTAR Y ABORDAJE INTEGRAL POSQUIRÚRGICO</h3>
-                <div className="e2-program-item"><div className="e2-program-time">7:30 – 8:30</div><div className="e2-program-desc">Acreditación</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">8:30</div><div className="e2-program-desc">Apertura oficial</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">9:00 – 9:30</div><div className="e2-program-desc">La Estética Integral ante la Ley: límites, responsabilidades y consecuencias de una práctica profesional.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">9:30 – 10:30</div><div className="e2-program-desc">La importancia del equipo multidisciplinario en el resultado quirúrgico.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">10:30 – 11:00</div><div className="e2-program-desc">Break</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">11:00 – 12:00</div><div className="e2-program-desc">Wellness médico: el nuevo aliado en la recuperación y mantenimiento del paciente estético antes, durante y después de la cirugía.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">12:00 – 1:00</div><div className="e2-program-desc">Nutracéuticos: el ingrediente invisible de la cirugía exitosa.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">1:00 – 2:30</div><div className="e2-program-desc">Almuerzo + visita comercial</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">2:30 – 4:00</div><div className="e2-program-desc">Rehabilitación posquirúrgica inteligente y electroestética.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">4:00 – 4:30</div><div className="e2-program-desc">La mente detrás del espejo: cuerpos transformados, emociones acompañadas.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">4:30 – 5:30</div><div className="e2-program-desc">Integración del bienestar en la recuperación del paciente oncológico y reconstructivo.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">5:30 – 6:30</div><div className="e2-program-desc">Prevención de las secuelas pigmentarias de la piel.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">6:30 – 9:00</div><div className="e2-program-desc">Muestra comercial.</div></div>
-              </>
-            )}
-
-            {activeTab === '20nov' && (
-              <>
-                <h3 style={{ textAlign: 'center', marginBottom: '24px', fontFamily: 'Barlow Condensed', fontSize: '24px', fontWeight: 800, textTransform: 'uppercase' }}>ESTÉTICA CORPORAL AVANZADA</h3>
-                <div className="e2-program-item"><div className="e2-program-time">8:00 – 8:45</div><div className="e2-program-desc">Ingreso de asistentes</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">9:00 – 10:00</div><div className="e2-program-desc">Tratamientos no invasivos para reducción y moldeamiento corporal.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">10:00 – 11:00</div><div className="e2-program-desc">Electroestética, músculo y metabolismo: la ciencia detrás del gasto energético.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">11:00 – 11:30</div><div className="e2-program-desc">Coffee Break</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">11:30 – 12:30</div><div className="e2-program-desc">El GPS de la terapia manual: dónde, cómo y por qué intervenir.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">12:30 – 2:00</div><div className="e2-program-desc">Almuerzo</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">2:00 – 3:00</div><div className="e2-program-desc">De la microlesión a la regeneración: la ciencia actual de las microagujas.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">3:00 – 4:00</div><div className="e2-program-desc">La otra cara de la pérdida de peso: del éxito metabólico al desafío estético.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">4:00 – 5:30</div><div className="e2-program-desc">Maestros Sin Fronteras: 5 naciones y un solo lenguaje, las manos.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">5:30 – 6:30</div><div className="e2-program-desc">Entrega de certificados y brindis final.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">6:30 – 9:00</div><div className="e2-program-desc">Muestra comercial.</div></div>
-              </>
-            )}
-
-            {activeTab === '21nov' && (
-              <>
-                <h3 style={{ textAlign: 'center', marginBottom: '24px', fontFamily: 'Barlow Condensed', fontSize: '24px', fontWeight: 800, textTransform: 'uppercase', color: '#0284c7' }}>FACIAL 360 (EXCLUSIVO ENTRADA DIAMANTE)</h3>
-                <div className="e2-program-item"><div className="e2-program-time">8:00 – 8:45</div><div className="e2-program-desc">Ingreso de asistentes</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">9:00 – 10:00</div><div className="e2-program-desc">Envejecer y rejuvenecer: actualidad en protocolos faciales.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">10:00 – 11:00</div><div className="e2-program-desc">Ecografía en medicina estética: del diagnóstico a los resultados.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">11:00 – 11:30</div><div className="e2-program-desc">Coffee Break</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">11:30 – 12:30</div><div className="e2-program-desc">Rellenos con ácido hialurónico: más allá del volumen.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">12:30 – 2:00</div><div className="e2-program-desc">Almuerzo</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">2:00 – 3:00</div><div className="e2-program-desc">Toxina botulínica: estrategia completa en tercio superior.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">3:00 – 4:00</div><div className="e2-program-desc">Regeneradores e inductores en medicina estética: nuevas evidencias, mejores resultados.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">4:00 – 5:00</div><div className="e2-program-desc">Bioestimulación combinada: el presente de la calidad de la piel.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">5:00 – 5:30</div><div className="e2-program-desc">Entrega de certificados y brindis final.</div></div>
-                <div className="e2-program-item"><div className="e2-program-time">5:30 – 8:00</div><div className="e2-program-desc">Muestra comercial.</div></div>
-              </>
-            )}
-            
-            <p className="e2-body e2-body--center" style={{ marginTop: '32px', fontSize: '13px' }}>* Programa sujeto a cambios sin previo aviso.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
-          INNOVA EXPO SECTION
-          ========================================= */}
-      <section className="e2-section" style={{ background: 'rgba(255,255,255,0.8)' }}>
-        <div className="e2-container" style={{ textAlign: 'center' }}>
-          <div className="e2-reveal">
-            <span className="e2-eyebrow">INNOVA EXPO</span>
-            <h2 className="e2-title e2-title--lg">Donde el conocimiento <span className="e2-title--gradient-blue">se encuentra con las soluciones</span></h2>
-            <p className="e2-body" style={{ margin: '24px auto', maxWidth: '800px' }}>
-              El componente comercial de INNOVA 360.
-            </p>
-          </div>
-          
-          <div className="e2-exp-grid" style={{ marginTop: '32px' }}>
-            <div className="e2-exp-card e2-reveal">
-              <h3 className="e2-exp-card__name">CONOCER</h3>
-              <p className="e2-body" style={{ fontSize: '14px' }}>Explorar tendencias, productos y tecnologías que están transformando el sector.</p>
-            </div>
-            <div className="e2-exp-card e2-reveal" style={{ transitionDelay: '100ms' }}>
-              <h3 className="e2-exp-card__name">DESCUBRIR</h3>
-              <p className="e2-body" style={{ fontSize: '14px' }}>Identificar soluciones innovadoras que impulsen el crecimiento profesional y del negocio.</p>
-            </div>
-            <div className="e2-exp-card e2-reveal" style={{ transitionDelay: '200ms' }}>
-              <h3 className="e2-exp-card__name">CONECTAR</h3>
-              <p className="e2-body" style={{ fontSize: '14px' }}>Generar relaciones estratégicas y nuevas oportunidades.</p>
-            </div>
-          </div>
-
-          <div className="e2-reveal" style={{ marginTop: '48px' }}>
-            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary">Quiero vivir Innova Expo (USD 20)</a>
-          </div>
-        </div>
-      </section>
 
       {/* =========================================
           NETWORKING & RESULTADOS
@@ -487,31 +435,7 @@ export default function Entradas2() {
             </div>
           </div>
 
-          {/* Resultados */}
-          <div className="e2-reveal" style={{ marginTop: '100px', textAlign: 'center' }}>
-            <span className="e2-eyebrow">Resultados</span>
-            <h2 className="e2-title e2-title--lg">Lo que te llevas <span className="e2-title--gradient-blue">va más allá del evento</span></h2>
-          </div>
 
-          <div className="e2-reveal" style={{ display: 'flex', flexDirection: 'column', gap: '20px', maxWidth: '600px', margin: '48px auto' }}>
-            {[
-              'ACTUALIZAR TU CONOCIMIENTO',
-              'FORTALECER TU CRITERIO',
-              'DESCUBRIR NUEVAS POSIBILIDADES',
-              'AMPLIAR TU VISIÓN DEL SECTOR',
-              'CREAR NUEVAS CONEXIONES'
-            ].map((text, i) => (
-              <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <span style={{ fontFamily: 'Barlow Condensed', fontSize: '32px', fontWeight: 900, color: '#0284c7' }}>0{i+1}</span>
-                <span style={{ fontSize: '18px', fontWeight: 700, color: 'var(--e2-text)' }}>{text}</span>
-              </div>
-            ))}
-          </div>
-
-          <p className="e2-reveal" style={{ textAlign: 'center', fontSize: '24px', fontWeight: 800, textTransform: 'uppercase', marginTop: '64px', lineHeight: 1.3 }}>
-            No se trata solo de lo que aprendes durante tres días.<br/>
-            <span className="e2-title--gradient-blue">Se trata de lo que puedes hacer con ello después.</span>
-          </p>
 
         </div>
       </section>
@@ -559,37 +483,7 @@ export default function Entradas2() {
         </div>
       </section>
 
-      {/* =========================================
-          AUTORIDAD
-          ========================================= */}
-      <section className="e2-section">
-        <div className="e2-container">
-          <div className="e2-reveal" style={{ textAlign: 'center' }}>
-            <h2 className="e2-title e2-title--lg">Quiénes están detrás de <span className="e2-title--gradient-blue">INNOVA 360</span></h2>
-          </div>
 
-          <div className="e2-reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '48px' }}>
-            <div>
-              <h3 className="e2-exp-card__name" style={{ fontSize: '28px', marginBottom: '4px' }}>Daniela Caballero</h3>
-              <div style={{ color: 'var(--e2-blue-light)', fontWeight: 700, textTransform: 'uppercase', fontSize: '12px', letterSpacing: '1px', marginBottom: '16px' }}>Fundadora y Directora General</div>
-              <p className="e2-body">
-                Más de diez años de formación continua y trayectoria vinculada al sector de la estética y el bienestar. Fundadora de DC Belleza VIP.<br/><br/>
-                Desde la Dirección General lidera la construcción de una plataforma que conecta conocimiento, innovación, talento y oportunidades.
-              </p>
-            </div>
-            
-            <div>
-              <h3 className="e2-exp-card__name" style={{ fontSize: '28px', marginBottom: '4px' }}>Dra. Andrea Restrepo</h3>
-              <div style={{ color: 'var(--e2-blue-light)', fontWeight: 700, textTransform: 'uppercase', fontSize: '12px', letterSpacing: '1px', marginBottom: '16px' }}>Directora Académica</div>
-              <p className="e2-body">
-                Médica con Maestría en Medicina Estética y Terapias Antiaging.<br/><br/>
-                Trayectoria en práctica asistencial, docencia, dirección académica y gestión de proyectos especializados en estética.<br/><br/>
-                Su propuesta académica para INNOVA 360 está basada en actualidad, pertinencia, criterio profesional y aplicabilidad.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* =========================================
           PLANEA TU EXPERIENCIA EN CARACAS
@@ -673,29 +567,7 @@ export default function Entradas2() {
         </div>
       </section>
 
-      {/* =========================================
-          FINAL CTA
-          ========================================= */}
-      <section className="e2-section e2-section--dark" style={{ textAlign: 'center', padding: '120px 24px' }}>
-        <div className="e2-container">
-          <div className="e2-reveal">
-            <h2 className="e2-title" style={{ fontSize: 'clamp(40px, 8vw, 80px)', marginBottom: '16px' }}>Tu lugar en<br/><span className="e2-title--gradient-diamond">INNOVA 360</span><br/>te está esperando</h2>
-            
-            <p style={{ fontSize: '18px', color: '#94a3b8', marginTop: '24px', fontWeight: 600 }}>
-              Tres días.<br/>
-              Una experiencia que puede ampliar tu manera de ver el sector.
-            </p>
-            
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', alignItems: 'center', margin: '32px 0 48px' }}>
-              <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 24px', borderRadius: '50px', fontSize: '14px', letterSpacing: '1px', fontWeight: 600 }}>19 · 20 NOVIEMBRE 2026<br/>CONGRESO INTERNACIONAL + INNOVA EXPO</span>
-              <span style={{ background: 'rgba(2,132,199,0.1)', color: '#38bdf8', padding: '8px 24px', borderRadius: '50px', fontSize: '14px', letterSpacing: '1px', fontWeight: 600 }}>21 NOVIEMBRE 2026<br/>EXPERIENCIA INNOVA · FACIAL 360 (Exclusivo Entrada Diamante)</span>
-              <span style={{ background: 'rgba(255,255,255,0.05)', padding: '8px 24px', borderRadius: '50px', fontSize: '14px', letterSpacing: '1px', fontWeight: 600 }}>CARACAS · VENEZUELA</span>
-            </div>
 
-            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary" style={{ padding: '24px 48px', fontSize: '20px' }}>Elige tu entrada y sé parte de INNOVA 360</a>
-          </div>
-        </div>
-      </section>
 
       {/* =========================================
           STICKY MOBILE BAR
