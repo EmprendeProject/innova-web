@@ -6,8 +6,6 @@ import { useCountUp } from '../hooks/useCountUp'
 import { useReveal } from '../hooks/useReveal'
 import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
 import LogoMarquee from '../components/LogoMarquee'
-import WhyExhibit from '../components/WhyExhibit'
-
 /* ──────────────────────────────────────────────────────────────
    STAT ITEM — count-up animation
 ────────────────────────────────────────────────────────────── */
@@ -91,7 +89,7 @@ export default function Entradas2() {
             <div className="e2-date-clean-row">
               <div className="e2-date-clean">
                 <span className="e2-date-clean__day">21 Nov 2026</span>
-                <span className="e2-date-clean__label">Facial 360</span>
+                <span className="e2-date-clean__label">Workshop 360</span>
               </div>
               <div className="e2-date-clean">
                 <span className="e2-date-clean__day">Caracas</span>
@@ -100,9 +98,8 @@ export default function Entradas2() {
             </div>
           </div>
           
-          <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary">Elige tu entrada</a>
-            <a href="#experiencia" className="e2-btn e2-btn--outline">Conoce la experiencia</a>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
+            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary" style={{ textTransform: 'uppercase' }}>Ver entradas</a>
           </div>
         </div>
       </section>
@@ -123,39 +120,7 @@ export default function Entradas2() {
         </div>
       </section>
 
-      {/* =========================================
-          MUCHO MÁS QUE UN CONGRESO
-          ========================================= */}
-      <section id="experiencia" className="e2-section">
-        <div className="e2-container">
-          <div className="e2-reveal" style={{ textAlign: 'center' }}>
-            <span className="e2-eyebrow">La Experiencia 360°</span>
-            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
-              Mucho más que <span className="e2-title--gradient-blue">asistir a un congreso</span>
-            </h2>
-            <div className="e2-divider" />
-            <p className="e2-body e2-body--center" style={{ maxWidth: '600px', margin: '0 auto' }}>
-              INNOVA 360 integra diferentes dimensiones para construir una experiencia profesional más completa.
-            </p>
-          </div>
-          
-          <div className="e2-exp-grid" style={{ marginTop: '48px' }}>
-            {[
-              { title: 'Conocimiento', desc: 'Conferencias y contenidos seleccionados alrededor de las necesidades actuales del sector.', icon: '💡' },
-              { title: 'Actualización', desc: 'Nuevas perspectivas, tendencias, metodologías y abordajes profesionales.', icon: '🔄' },
-              { title: 'Innovación', desc: 'Productos, tecnologías y soluciones presentes en INNOVA Expo.', icon: '🚀' },
-              { title: 'Conexión', desc: 'Profesionales, expertos, empresas y aliados reunidos en un mismo escenario.', icon: '🤝' },
-              { title: 'Experiencia', desc: 'Momentos diseñados para llevar el aprendizaje y el relacionamiento más allá del auditorio.', icon: '✨' },
-            ].map((item, idx) => (
-              <div key={idx} className="e2-exp-card e2-reveal" style={{ transitionDelay: `${idx * 100}ms` }}>
-                <div style={{ fontSize: '40px', marginBottom: '16px' }}>{item.icon}</div>
-                <h3 className="e2-exp-card__name">{item.title}</h3>
-                <p className="e2-body" style={{ fontSize: '14px' }}>{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* =========================================
           EDICIÓN PASADA & MARCAS & WHY EXHIBIT
@@ -179,7 +144,43 @@ export default function Entradas2() {
 
       <LogoMarquee />
 
-      <WhyExhibit />
+      {/* =========================================
+          WORKSHOP 360
+          ========================================= */}
+      <section className="e2-section e2-facial e2-section--dark">
+        <div className="e2-container">
+          <div className="e2-facial-content e2-reveal">
+            <span className="e2-eyebrow" style={{ color: '#38bdf8' }}>21 NOVIEMBRE</span>
+            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
+              Experiencia Innova<br/>
+              <span className="e2-title--gradient-diamond">Workshop 360</span>
+            </h2>
+            <p className="e2-body" style={{ color: '#cbd5e1', fontSize: '18px' }}>Una experiencia premium más allá del congreso.</p>
+            
+            <p className="e2-body" style={{ marginTop: '24px', color: '#94a3b8' }}>
+              El 21 de noviembre, INNOVA 360 continúa a través de una experiencia académica exclusiva diseñada para llevar el aprendizaje a un formato más cercano, práctico y especializado.
+              <br/><br/>
+              Una jornada con aforo y acceso diferenciados, dirigida a los asistentes con Entrada Diamante.
+            </p>
+
+            <div className="e2-facial-grid">
+              <div className="e2-facial-item">Ciencia</div>
+              <div className="e2-facial-item">Tecnología</div>
+              <div className="e2-facial-item">Experiencia</div>
+              <div className="e2-facial-item">Personalización</div>
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px' }}>
+              <span style={{ fontSize: '18px', fontWeight: 700 }}>Conocimiento más cerca</span>
+              <span style={{ fontSize: '18px', fontWeight: 700 }}>Experiencias más profundas</span>
+              <span style={{ fontSize: '18px', fontWeight: 700 }}>Conexiones más valiosas</span>
+            </div>
+
+            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--diamond">Quiero vivir Workshop 360</a>
+            <p style={{ marginTop: '16px', fontSize: '12px', color: '#64748b' }}>* Disponible exclusivamente con Entrada Diamante.</p>
+          </div>
+        </div>
+      </section>
 
       {/* =========================================
           ENTRADAS (TIERS)
@@ -285,7 +286,7 @@ export default function Entradas2() {
                 <ul className="e2-tier-benefits">
                   {[
                     'Ubicación preferencial · Zona Diamante',
-                    'Acceso a Experiencia INNOVA · Facial 360',
+                    'Acceso a Experiencia INNOVA · Workshop 360',
                     'Jornada académica exclusiva del 21 de noviembre'
                   ].map((b, i) => (
                     <li key={i} className="e2-tier-benefit">
@@ -366,7 +367,7 @@ export default function Entradas2() {
                   <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
                 </tr>
                 <tr>
-                  <td>Facial 360 (Jornada del 21 de noviembre)</td>
+                  <td>Workshop 360 (Jornada del 21 de noviembre)</td>
                   <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
                   <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
                   <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
@@ -374,68 +375,6 @@ export default function Entradas2() {
               </tbody>
             </table>
           </div>
-        </div>
-      </section>
-
-      {/* =========================================
-          FACIAL 360
-          ========================================= */}
-      <section className="e2-section e2-facial e2-section--dark">
-        <div className="e2-container">
-          <div className="e2-facial-content e2-reveal">
-            <span className="e2-eyebrow" style={{ color: '#38bdf8' }}>21 NOVIEMBRE</span>
-            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
-              Experiencia Innova<br/>
-              <span className="e2-title--gradient-diamond">Facial 360</span>
-            </h2>
-            <p className="e2-body" style={{ color: '#cbd5e1', fontSize: '18px' }}>Una experiencia premium más allá del congreso.</p>
-            
-            <p className="e2-body" style={{ marginTop: '24px', color: '#94a3b8' }}>
-              El 21 de noviembre, INNOVA 360 continúa a través de una experiencia académica exclusiva diseñada para llevar el aprendizaje a un formato más cercano, práctico y especializado.
-              <br/><br/>
-              Una jornada con aforo y acceso diferenciados, dirigida a los asistentes con Entrada Diamante.
-            </p>
-
-            <div className="e2-facial-grid">
-              <div className="e2-facial-item">Ciencia</div>
-              <div className="e2-facial-item">Tecnología</div>
-              <div className="e2-facial-item">Experiencia</div>
-              <div className="e2-facial-item">Personalización</div>
-            </div>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px' }}>
-              <span style={{ fontSize: '18px', fontWeight: 700 }}>Conocimiento más cerca</span>
-              <span style={{ fontSize: '18px', fontWeight: 700 }}>Experiencias más profundas</span>
-              <span style={{ fontSize: '18px', fontWeight: 700 }}>Conexiones más valiosas</span>
-            </div>
-
-            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--diamond">Quiero vivir Facial 360</a>
-            <p style={{ marginTop: '16px', fontSize: '12px', color: '#64748b' }}>* Disponible exclusivamente con Entrada Diamante.</p>
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* =========================================
-          NETWORKING & RESULTADOS
-          ========================================= */}
-      <section className="e2-section">
-        <div className="e2-container">
-          
-          {/* Networking */}
-          <div className="e2-reveal" style={{ background: 'linear-gradient(to right, rgba(0,26,88,0.8), rgba(0,91,216,0.6)), url("/placeholder-net.jpg") center/cover', borderRadius: '24px', padding: '60px 32px', textAlign: 'center', color: '#fff' }}>
-            <h2 className="e2-title e2-title--md" style={{ color: '#fff' }}>Conexiones que abren posibilidades</h2>
-            <p style={{ fontSize: '20px', fontStyle: 'italic', fontWeight: 300, margin: '24px 0', opacity: 0.9 }}>“Algunas conexiones duran un momento. Otras pueden cambiar tu camino profesional.”</p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-              {['CONECTAR', 'INTERCAMBIAR', 'DESCUBRIR', 'AMPLIAR'].map((w, i) => (
-                <span key={i} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '12px 24px', borderRadius: '12px', fontWeight: 700, letterSpacing: '1px' }}>{w}</span>
-              ))}
-            </div>
-          </div>
-
-
-
         </div>
       </section>
 
@@ -543,11 +482,11 @@ export default function Entradas2() {
             {/* FAQs */}
             {[
               { q: "¿Dónde se realizará INNOVA 360?", a: "Centro Comercial Líder, Nivel Contemporáneo, Caracas, Venezuela." },
-              { q: "¿Cuándo se realizará?", a: "19 y 20 de noviembre de 2026. Facial 360 se realizará el 21 de noviembre." },
+              { q: "¿Cuándo se realizará?", a: "19 y 20 de noviembre de 2026. Workshop 360 se realizará el 21 de noviembre." },
               { q: "¿INNOVA EXPO permite entrar al Congreso?", a: "No. La entrada INNOVA EXPO de USD 20 no incluye acceso al Congreso Internacional." },
               { q: "¿Qué días incluye VIP?", a: "19 y 20 de noviembre." },
               { q: "¿Qué días incluye Diamante?", a: "19, 20 y 21 de noviembre." },
-              { q: "¿Facial 360 se vende por separado?", a: "Según la oferta actual, Facial 360 forma parte de los beneficios exclusivos de Entrada Diamante." },
+              { q: "¿Workshop 360 se vende por separado?", a: "Según la oferta actual, Workshop 360 forma parte de los beneficios exclusivos de Entrada Diamante." },
               { q: "¿Existe tarifa para grupos?", a: "Sí. Hay planes para equipos de 5 y de 10 participantes o más." },
               { q: "Métodos de pago, política de entradas, transferencia, menores, estacionamiento y facturación", a: "Esta información será publicada próximamente a través de nuestros canales oficiales." }
             ].map((faq, index) => (
@@ -567,6 +506,26 @@ export default function Entradas2() {
       </section>
 
 
+
+      {/* =========================================
+          NETWORKING & RESULTADOS
+          ========================================= */}
+      <section className="e2-section">
+        <div className="e2-container">
+          
+          {/* Networking */}
+          <div className="e2-reveal" style={{ background: 'linear-gradient(to right, rgba(0,26,88,0.8), rgba(0,91,216,0.6)), url("/placeholder-net.jpg") center/cover', borderRadius: '24px', padding: '60px 32px', textAlign: 'center', color: '#fff' }}>
+            <h2 className="e2-title e2-title--md" style={{ color: '#fff' }}>Conexiones que abren posibilidades</h2>
+            <p style={{ fontSize: '20px', fontStyle: 'italic', fontWeight: 300, margin: '24px 0', opacity: 0.9 }}>“Algunas conexiones duran un momento. Otras pueden cambiar tu camino profesional.”</p>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
+              {['CONECTAR', 'INTERCAMBIAR', 'DESCUBRIR', 'AMPLIAR'].map((w, i) => (
+                <span key={i} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '12px 24px', borderRadius: '12px', fontWeight: 700, letterSpacing: '1px' }}>{w}</span>
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </section>
 
       {/* =========================================
           STICKY MOBILE BAR
