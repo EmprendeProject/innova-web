@@ -21,7 +21,7 @@ function Navbar() {
             Entradas
           </NavLink>
           <NavLink
-            to="/stands2"
+            to="/stands"
             className={({ isActive }) => `navbar-link${isActive ? ' navbar-link--active' : ''}`}
           >
             Stands
