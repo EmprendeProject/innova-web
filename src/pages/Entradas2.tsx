@@ -130,23 +130,9 @@ export default function Entradas2() {
             <a 
               href="#entradas" 
               onClick={scrollToTickets} 
-              className="e2-btn e2-btn--primary" 
-              style={{ 
-                textTransform: 'uppercase',
-                padding: '20px 48px',
-                fontSize: '22px',
-                fontWeight: 900,
-                letterSpacing: '1px',
-                background: 'linear-gradient(135deg, #001a58 0%, #005bd8 50%, #00b4d8 100%)',
-                boxShadow: '0 10px 30px rgba(0, 91, 216, 0.4)',
-                border: '2px solid rgba(255,255,255,0.2)',
-                borderRadius: '50px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px'
-              }}
+              className="e2-btn e2-btn--hero" 
             >
-              Comprar Entrada <span style={{ fontSize: '24px' }}>→</span>
+              Comprar Entrada
             </a>
           </div>
         </div>
@@ -191,6 +177,43 @@ export default function Entradas2() {
       </section>
 
       <LogoMarquee />
+
+      {/* =========================================
+          ¿QUÉ ES INNOVA 360?
+          ========================================= */}
+      <section className="e2-section" style={{ background: '#f8fafc' }}>
+        <div className="e2-container">
+          <div className="e2-reveal" style={{ textAlign: 'center', marginBottom: '32px' }}>
+            <span className="e2-eyebrow">El evento del año</span>
+            <h2 className="e2-title e2-title--lg">¿Qué es INNOVA 360?</h2>
+            <p className="e2-body e2-body--center" style={{ maxWidth: '700px', margin: '24px auto 0' }}>
+              Es el epicentro de la actualización profesional en el sector estético, posquirúrgico y de bienestar. 
+              Durante los dos primeros días (19 y 20 de noviembre), vivirás una inmersión total en las últimas 
+              tendencias y tecnologías a través de dos grandes áreas:
+            </p>
+          </div>
+
+          <div className="e2-reveal" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '32px' }}>
+            <div className="e2-exp-card" style={{ background: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+              <div style={{ fontSize: '40px', marginBottom: '16px' }}>🏬</div>
+              <h3 className="e2-exp-card__name">INNOVA Expo</h3>
+              <p className="e2-exp-card__desc" style={{ color: '#475569' }}>
+                Un área comercial vibrante donde podrás interactuar directamente con las marcas líderes del mercado, 
+                descubrir nuevos productos, equipos de vanguardia y presenciar demostraciones en vivo.
+              </p>
+            </div>
+            
+            <div className="e2-exp-card" style={{ background: '#fff', border: '1px solid #e2e8f0', boxShadow: '0 10px 30px rgba(0,0,0,0.05)' }}>
+              <div style={{ fontSize: '40px', marginBottom: '16px' }}>🎤</div>
+              <h3 className="e2-exp-card__name">Expo Congreso</h3>
+              <p className="e2-exp-card__desc" style={{ color: '#475569' }}>
+                Un espacio de conocimiento exclusivo. Expertos nacionales e internacionales compartirán ponencias 
+                magistrales, casos de éxito y actualizaciones científicas clave para impulsar tu práctica profesional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* =========================================
           WORKSHOP 360

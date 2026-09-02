@@ -55,7 +55,7 @@
   padding: 0 24px;
 }
 
-.e2-section         { padding: 80px 0; position: relative; }
+.e2-section         { padding: 60px 0; position: relative; }
 .e2-section--dark   { background: rgba(15,23,42,0.95); color: #fff; }
 
 /* ── TYPOGRAPHY ── */
@@ -354,6 +354,53 @@
 }
 .e2-btn--primary:hover { box-shadow: 0 8px 28px rgba(29,78,216,0.4); color: #fff;}
 
+.e2-btn--hero {
+  position: relative;
+  background: linear-gradient(135deg, #001a58, #005bd8, #00b4d8);
+  background-size: 200% 200%;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 20px 48px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0, 91, 216, 0.4), inset 0 2px 4px rgba(255,255,255,0.3);
+  animation: e2heroGradient 4s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+@keyframes e2heroGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.e2-btn--hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 50%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg);
+  animation: e2heroShine 3s infinite;
+}
+
+@keyframes e2heroShine {
+  0% { left: -100%; }
+  20% { left: 200%; }
+  100% { left: 200%; }
+}
+
+.e2-btn--hero:hover {
+  transform: scale(1.05) translateY(-4px);
+  box-shadow: 0 15px 40px rgba(0, 91, 216, 0.6), inset 0 2px 4px rgba(255,255,255,0.4);
+  color: #fff;
+}
+
 .e2-btn--vip {
   background: linear-gradient(135deg, var(--e2-vip-dark), var(--e2-vip-light));
   color: #fff;
@@ -609,7 +656,7 @@
    RESPONSIVE (MOBILE FIXES)
 ═══════════════════════════════════════ */
 @media (max-width: 768px) {
-  .e2-section { padding: 48px 0; }
+  .e2-section { padding: 32px 0; }
   .e2-title--lg { font-size: 40px; }
   .e2-hero { padding: 80px 16px 60px; min-height: auto; }
   .e2-hero-main-title { font-size: 48px; }
@@ -634,3 +681,4 @@
 
   .e2-tier-card__inner { padding: 32px 24px; }
 }
+
