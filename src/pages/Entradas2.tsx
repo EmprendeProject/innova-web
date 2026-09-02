@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import '../App.css'
 import '../styles/Entradas2.css'
 import logoImg from '../assets/elementos graficos/logo innova 360.webp'
+import esteticaVideo from '../assets/videos/estetica 1.mp4'
+import portadaVideo from '../assets/videos/portada 1.mp4'
 import { useCountUp } from '../hooks/useCountUp'
 import { useReveal } from '../hooks/useReveal'
-import PastEditionCarouselStands2 from '../components/PastEditionCarouselStands2'
+import PastEditionCarouselEntradas from '../components/PastEditionCarouselEntradas'
 import LogoMarquee from '../components/LogoMarquee'
 /* ──────────────────────────────────────────────────────────────
    STAT ITEM — count-up animation
@@ -63,21 +65,47 @@ export default function Entradas2() {
       {/* =========================================
           HERO
           ========================================= */}
-      <section className="e2-hero">
-        <div className="e2-hero-grid" aria-hidden="true"></div>
-        <div className="e2-hero-content e2-reveal">
+      <section className="e2-hero" style={{ position: 'relative', overflow: 'hidden' }}>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            zIndex: 0 
+          }}
+        >
+          <source src={portadaVideo} type="video/mp4" />
+        </video>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(5, 10, 30, 0.65)',
+          zIndex: 0
+        }}></div>
+        <div className="e2-hero-grid" aria-hidden="true" style={{ position: 'relative', zIndex: 1 }}></div>
+        <div className="e2-hero-content e2-reveal" style={{ position: 'relative', zIndex: 2 }}>
           
           <img src={logoImg} alt="INNOVA 360" className="e2-hero-logo" loading="eager" />
           
-          <p className="e2-hero-tagline">
+          <p className="e2-hero-tagline" style={{ color: '#38bdf8' }}>
             CONGRESO INTERNACIONAL
           </p>
           
-          <h1 className="e2-hero-main-title">
+          <h1 className="e2-hero-main-title" style={{ color: '#ffffff' }}>
             DE POSQUIRÚRGICO,<br/>ESTÉTICA Y BIENESTAR
           </h1>
           
-          <p className="e2-hero-subheadline">
+          <p className="e2-hero-subheadline" style={{ color: '#e2e8f0' }}>
             “Tres días para ampliar tu manera de ver el sector.”
           </p>
           
@@ -98,8 +126,28 @@ export default function Entradas2() {
             </div>
           </div>
           
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '24px' }}>
-            <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary" style={{ textTransform: 'uppercase' }}>Ver entradas</a>
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '32px' }}>
+            <a 
+              href="#entradas" 
+              onClick={scrollToTickets} 
+              className="e2-btn e2-btn--primary" 
+              style={{ 
+                textTransform: 'uppercase',
+                padding: '20px 48px',
+                fontSize: '22px',
+                fontWeight: 900,
+                letterSpacing: '1px',
+                background: 'linear-gradient(135deg, #001a58 0%, #005bd8 50%, #00b4d8 100%)',
+                boxShadow: '0 10px 30px rgba(0, 91, 216, 0.4)',
+                border: '2px solid rgba(255,255,255,0.2)',
+                borderRadius: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px'
+              }}
+            >
+              Comprar Entrada <span style={{ fontSize: '24px' }}>→</span>
+            </a>
           </div>
         </div>
       </section>
@@ -130,7 +178,7 @@ export default function Entradas2() {
           <div className="e2-reveal" style={{ textAlign: 'center' }}>
             <span className="e2-eyebrow">Lo que ya vivimos juntos</span>
             <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
-              Primera Edición <span className="e2-title--gradient-blue">INNOVA 360</span>
+              Así fue la edición anterior
             </h2>
             <div className="e2-divider" />
             <p className="e2-body e2-body--center" style={{ maxWidth: '560px', margin: '0 auto' }}>
@@ -138,7 +186,7 @@ export default function Entradas2() {
               y los resultados que construyeron la base de lo que viene.
             </p>
           </div>
-          <PastEditionCarouselStands2 />
+          <PastEditionCarouselEntradas />
         </div>
       </section>
 
@@ -147,37 +195,63 @@ export default function Entradas2() {
       {/* =========================================
           WORKSHOP 360
           ========================================= */}
-      <section className="e2-section e2-facial e2-section--dark">
-        <div className="e2-container">
-          <div className="e2-facial-content e2-reveal">
+      <section className="e2-section e2-facial e2-section--dark" style={{ position: 'relative', overflow: 'hidden' }}>
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover', 
+            zIndex: 0 
+          }}
+        >
+          <source src={esteticaVideo} type="video/mp4" />
+        </video>
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'rgba(5, 10, 30, 0.75)',
+          zIndex: 0
+        }}></div>
+        <div className="e2-container" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="e2-facial-content e2-reveal" style={{ color: '#fff' }}>
             <span className="e2-eyebrow" style={{ color: '#38bdf8' }}>21 NOVIEMBRE</span>
-            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px' }}>
+            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '16px', color: '#ffffff' }}>
               Experiencia Innova<br/>
               <span className="e2-title--gradient-diamond">Workshop 360</span>
             </h2>
-            <p className="e2-body" style={{ color: '#cbd5e1', fontSize: '18px' }}>Una experiencia premium más allá del congreso.</p>
+            <p className="e2-body" style={{ color: '#f8fafc', fontSize: '18px' }}>Una experiencia premium más allá del congreso.</p>
             
-            <p className="e2-body" style={{ marginTop: '24px', color: '#94a3b8' }}>
+            <p className="e2-body" style={{ marginTop: '24px', color: '#e2e8f0' }}>
               El 21 de noviembre, INNOVA 360 continúa a través de una experiencia académica exclusiva diseñada para llevar el aprendizaje a un formato más cercano, práctico y especializado.
               <br/><br/>
               Una jornada con aforo y acceso diferenciados, dirigida a los asistentes con Entrada Diamante.
             </p>
 
             <div className="e2-facial-grid">
-              <div className="e2-facial-item">Ciencia</div>
-              <div className="e2-facial-item">Tecnología</div>
-              <div className="e2-facial-item">Experiencia</div>
-              <div className="e2-facial-item">Personalización</div>
+              <div className="e2-facial-item" style={{ color: '#fff' }}>Ciencia</div>
+              <div className="e2-facial-item" style={{ color: '#fff' }}>Tecnología</div>
+              <div className="e2-facial-item" style={{ color: '#fff' }}>Experiencia</div>
+              <div className="e2-facial-item" style={{ color: '#fff' }}>Personalización</div>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '32px', color: '#ffffff' }}>
               <span style={{ fontSize: '18px', fontWeight: 700 }}>Conocimiento más cerca</span>
               <span style={{ fontSize: '18px', fontWeight: 700 }}>Experiencias más profundas</span>
               <span style={{ fontSize: '18px', fontWeight: 700 }}>Conexiones más valiosas</span>
             </div>
 
             <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--diamond">Quiero vivir Workshop 360</a>
-            <p style={{ marginTop: '16px', fontSize: '12px', color: '#64748b' }}>* Disponible exclusivamente con Entrada Diamante.</p>
+            <p style={{ marginTop: '16px', fontSize: '12px', color: '#cbd5e1' }}>* Disponible exclusivamente con Entrada Diamante.</p>
           </div>
         </div>
       </section>
@@ -299,81 +373,6 @@ export default function Entradas2() {
               </div>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
-          COMPARADOR
-          ========================================= */}
-      <section className="e2-section">
-        <div className="e2-container">
-          <div className="e2-reveal" style={{ textAlign: 'center' }}>
-            <span className="e2-eyebrow">Comparativa</span>
-            <h2 className="e2-title e2-title--lg" style={{ marginBottom: '32px' }}>Compara las entradas</h2>
-          </div>
-
-          <div className="e2-table-wrapper e2-reveal">
-            <table className="e2-table">
-              <thead>
-                <tr>
-                  <th>Beneficio</th>
-                  <th>INNOVA EXPO</th>
-                  <th>VIP</th>
-                  <th className="col-diamante" style={{ color: '#0284c7' }}>DIAMANTE</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>INNOVA Expo y Área de Patrocinantes</td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Demostraciones en vivo (Tarima Expo)</td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Congreso Internacional (Charlas y conferencias)</td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Ubicación en salón</td>
-                  <td><span style={{ color: '#cbd5e1' }}>-</span></td>
-                  <td style={{ fontWeight: 600 }}>Zona VIP</td>
-                  <td className="col-diamante" style={{ fontWeight: 600, color: '#0284c7' }}>Zona Diamante</td>
-                </tr>
-                <tr>
-                  <td>Networking, Coffee Break, Sorteos</td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Kit, Certificado y Memorias digitales</td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Participación en cóctel de cierre</td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td><span style={{ color: '#64748b', fontWeight: 'bold' }}>✓</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-                <tr>
-                  <td>Workshop 360 (Jornada del 21 de noviembre)</td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td><span style={{ color: '#cbd5e1' }}>✗</span></td>
-                  <td className="col-diamante"><span style={{ color: '#0284c7', fontWeight: 'bold' }}>✓</span></td>
-                </tr>
-              </tbody>
-            </table>
           </div>
         </div>
       </section>
@@ -506,33 +505,6 @@ export default function Entradas2() {
       </section>
 
 
-
-      {/* =========================================
-          NETWORKING & RESULTADOS
-          ========================================= */}
-      <section className="e2-section">
-        <div className="e2-container">
-          
-          {/* Networking */}
-          <div className="e2-reveal" style={{ background: 'linear-gradient(to right, rgba(0,26,88,0.8), rgba(0,91,216,0.6)), url("/placeholder-net.jpg") center/cover', borderRadius: '24px', padding: '60px 32px', textAlign: 'center', color: '#fff' }}>
-            <h2 className="e2-title e2-title--md" style={{ color: '#fff' }}>Conexiones que abren posibilidades</h2>
-            <p style={{ fontSize: '20px', fontStyle: 'italic', fontWeight: 300, margin: '24px 0', opacity: 0.9 }}>“Algunas conexiones duran un momento. Otras pueden cambiar tu camino profesional.”</p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', flexWrap: 'wrap', marginTop: '32px' }}>
-              {['CONECTAR', 'INTERCAMBIAR', 'DESCUBRIR', 'AMPLIAR'].map((w, i) => (
-                <span key={i} style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', padding: '12px 24px', borderRadius: '12px', fontWeight: 700, letterSpacing: '1px' }}>{w}</span>
-              ))}
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* =========================================
-          STICKY MOBILE BAR
-          ========================================= */}
-      <div className="e2-mobile-bar">
-        <a href="#entradas" onClick={scrollToTickets} className="e2-btn e2-btn--primary e2-btn--full">Comprar Entrada</a>
-      </div>
 
     </div>
   )
