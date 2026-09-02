@@ -24,8 +24,8 @@ const STANDS = [
   {
     id: 3,
     img: prototipo3,
-    medida: '3 × 3 m',
-    area: '9 m²',
+    medida: '4 × 2 m',
+    area: '8 m²',
     precio: '800',
     recomendado: false,
   }
