@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
-import Entradas from './pages/Entradas'
 import Entradas2 from './pages/Entradas2'
-import Stands from './pages/Stands'
 import Stands2 from './pages/Stands2'
 import Navbar from './components/Navbar'
 
