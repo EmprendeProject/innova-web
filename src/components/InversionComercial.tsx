@@ -164,9 +164,15 @@ export default function InversionComercial() {
 
         {/* Call to Action */}
         <div className="inv-action-wrap reveal">
-          <button className="inv-primary-btn">
+          <a 
+            href={`https://wa.me/584228638329?text=${encodeURIComponent('Hola, quiero información sobre las Alianzas Estratégicas en INNOVA 360')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inv-primary-btn"
+            style={{ textDecoration: 'none', display: 'inline-block' }}
+          >
             Adquirir un paquete general
-          </button>
+          </a>
         </div>
       </div>
     </section>

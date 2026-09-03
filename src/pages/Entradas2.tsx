@@ -21,6 +21,10 @@ function StatItem({ prefix, target, label }: { prefix: string; target: number; l
   )
 }
 
+const WHATSAPP = '584228638329'
+const wa = (msg: string) => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`
+
+
 export default function Entradas2() {
   useReveal()
   
@@ -324,7 +328,15 @@ export default function Entradas2() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className="e2-btn e2-btn--outline e2-btn--full" style={{ marginTop: 'auto' }}>Comprar INNOVA Expo</a>
+                <a 
+                  href={wa('Hola! Me interesa comprar la Entrada INNOVA Expo para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="e2-btn e2-btn--outline e2-btn--full" 
+                  style={{ marginTop: 'auto' }}
+                >
+                  Comprar INNOVA Expo
+                </a>
               </div>
             </div>
 
@@ -359,7 +371,15 @@ export default function Entradas2() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className="e2-btn e2-btn--vip e2-btn--full" style={{ marginTop: 'auto' }}>Comprar VIP</a>
+                <a 
+                  href={wa('Hola! Me interesa comprar la Entrada VIP para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="e2-btn e2-btn--vip e2-btn--full" 
+                  style={{ marginTop: 'auto' }}
+                >
+                  Comprar VIP
+                </a>
               </div>
             </div>
 
@@ -392,7 +412,15 @@ export default function Entradas2() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className="e2-btn e2-btn--diamond e2-btn--full" style={{ marginTop: 'auto' }}>Comprar Diamante</a>
+                <a 
+                  href={wa('Hola! Me interesa comprar la Entrada Diamante para el evento Innova 360 · Expo Congreso Internacional Estética y Bienestar 2026. ¿Me puedes dar más información?')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="e2-btn e2-btn--diamond e2-btn--full" 
+                  style={{ marginTop: 'auto' }}
+                >
+                  Comprar Diamante
+                </a>
               </div>
             </div>
 

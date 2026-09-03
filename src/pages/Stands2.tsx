@@ -80,6 +80,7 @@ export default function Stands2() {
   const WA_PLATINO = WA_BASE + encodeURIComponent('Hola, quiero información sobre la Alianza PLATINO en INNOVA 360')
   const WA_DIAMANTE = WA_BASE + encodeURIComponent('Hola, quiero información sobre la Alianza DIAMANTE en INNOVA 360')
   const WA_GENERAL = WA_BASE + encodeURIComponent('Hola, quiero información sobre las Alianzas Estratégicas en INNOVA 360')
+  const WA_PATROCINIOS = WA_BASE + encodeURIComponent('Hola, quiero información sobre los Patrocinios Especiales en INNOVA 360')
 
   return (
     <div
@@ -454,9 +455,9 @@ export default function Stands2() {
                 style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
                 loading="lazy"
               />
-              <button className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px' }}>
+              <a href={WA_PATROCINIOS} target="_blank" rel="noopener noreferrer" className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px', textDecoration: 'none', display: 'inline-block' }}>
                 Adquirir patrocinio
-              </button>
+              </a>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', width: '100%' }}>
@@ -466,9 +467,9 @@ export default function Stands2() {
                 style={{ maxWidth: '100%', height: 'auto', borderRadius: '12px' }}
                 loading="lazy"
               />
-              <button className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px' }}>
+              <a href={WA_PATROCINIOS} target="_blank" rel="noopener noreferrer" className="s2-btn s2-btn--primary" style={{ padding: '16px 40px', fontSize: '18px', textDecoration: 'none', display: 'inline-block' }}>
                 Adquirir patrocinio
-              </button>
+              </a>
             </div>
             <img
               src={tablaComparativaImg}
